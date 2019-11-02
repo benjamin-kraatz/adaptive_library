@@ -76,3 +76,14 @@ AdaptiveButton(
 As you can see, you can simply replace `FlatButton`, `CupertinoButton` or other buttons by `AdaptiveButton`. No need to change parameters.
 
 You can specify a color for Material button style, but it is recommended to set via the theme in AdaptiveApp.
+
+#### Raised/filled
+
+The code, by default, creates a `FlatButton` or `CupertinoButton` respectively.
+To use raised or filled version, append `.filled` like so:
+
+```dart
+AdaptiveButton.filled(
+    //...
+)
+
