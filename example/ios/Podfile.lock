@@ -1,0 +1,22 @@
+PODS:
+  - async_manager (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - async_manager (from `.symlinks/plugins/async_manager/ios`)
+  - Flutter (from `.symlinks/flutter/ios`)
+
+EXTERNAL SOURCES:
+  async_manager:
+    :path: ".symlinks/plugins/async_manager/ios"
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+
+SPEC CHECKSUMS:
+  async_manager: 3376e48f1207f512871e6626ec9adf3c569c2074
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+
+PODFILE CHECKSUM: b6a0a141693093b304368d08511b46cf3d1d0ac5
+
+COCOAPODS: 1.7.4
