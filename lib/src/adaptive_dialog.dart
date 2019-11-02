@@ -2,18 +2,27 @@ import 'package:adaptive_library/adaptive_library.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+/// Wraps either a [FlatButton] or a [CupertinoButton] for use in [AdaptiveAlertDialog]
 class AdaptiveAlertDialogButton extends StatelessWidget {
+  /// The button's content
   final Widget child;
+
+  /// The press callback. Can be null.
   final VoidCallback onPressed;
+
+  /// Being true by default, it says whether to dismiss the dialog regardless of [onPressed] being set.
   final bool closeOnPress;
+
+  /// Only used for [CupertinoDialogAction]; defines a destructive button
   final bool destructive;
 
   AdaptiveAlertDialogButton({
-    this.child,
+    @required this.child,
     this.onPressed,
     this.closeOnPress = true,
     this.destructive = false,
-  });
+  }) : assert(child != null,
+            'Without a child, we cannot provide optical feedback :(');
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +51,7 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
   }
 }
 
+///
 class AdaptiveAlertDialog extends StatefulWidget {
   static void show(BuildContext context,
       {@required AdaptiveState adaptiveState,
