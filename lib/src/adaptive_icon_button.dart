@@ -9,10 +9,9 @@ class AdaptiveIconButton extends StatelessWidget {
 
   AdaptiveIconButton({
     @required this.icon,
-    @required this.iconCupertino,
+    this.iconCupertino,
     this.onPressed,
-  }) : assert(icon != null || iconCupertino != null,
-            'We need an icon to see what is goung on.');
+  }) : assert(icon != null, 'We need an icon to see what is goung on.');
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class AdaptiveIconButton extends StatelessWidget {
             onPressed: onPressed,
           )
         : CupertinoButton(
-            child: iconCupertino,
+            child: iconCupertino ?? icon,
             onPressed: onPressed,
             padding: EdgeInsets.zero,
           );

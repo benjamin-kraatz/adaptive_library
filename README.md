@@ -86,4 +86,19 @@ To use raised or filled version, append `.raised` like so:
 AdaptiveButton.raised(
     //...
 )
+```
 
+### AdaptiveIconButton
+
+```dart
+AdaptiveIconButton(
+          icon: Icon(Icons.check_circle_outline),
+          iconCupertino: Icon(CupertinoIcons.check_mark_circled),
+          onPressed: () => null,
+        )
+```
+
+Flutter currently has no Cupertino equivalent to IconButton, so AdaptiveIconButton makes it.
+Provide either an icon to use it on both designs, or define another icon for Cupertino, because CupertinoIcons look a bit different.
+
+***Here, you can also replace `IconButton` by `AdaptiveIconButton`***
