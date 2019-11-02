@@ -102,3 +102,29 @@ Flutter currently has no Cupertino equivalent to IconButton, so AdaptiveIconButt
 Provide either an icon to use it on both designs, or define another icon for Cupertino, because CupertinoIcons look a bit different.
 
 ***Here, you can also replace `IconButton` by `AdaptiveIconButton` without extra work***
+
+
+### AdaptiveAlertDialog
+
+*To use a platform based alert dialog, it is recommended to use `AdaptiveAlertDialog.show(/**/)`.*
+
+
+```dart
+AdaptiveAlertDialog.show(
+              context,
+              adaptiveState: AdaptiveState.Cupertino,
+              title: Text('Hallo'),
+              content: Text('Einfach mal Hallo sagen'),
+              actions: [],
+            );
+```
+
+Unlike the other widgets, you need to set the AdaptiveState manually right now. (*We're working on this*).
+
+#### The actions
+
+> Because iOS devices do not have the typical "back" button by default, it is recommended to provide actions to dismiss the dialog.
+If you really do not want to use action buttons, set an empty array.
+
+*This is not necessary for Material styled dialogs.*
+
