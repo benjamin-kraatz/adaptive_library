@@ -6,11 +6,13 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
   final bool closeOnPress;
+  final bool destructive;
 
   AdaptiveAlertDialogButton({
     this.child,
     this.onPressed,
     this.closeOnPress = true,
+    this.destructive = false,
   });
 
   @override
@@ -29,6 +31,7 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
           )
         : CupertinoDialogAction(
             child: child,
+            isDestructiveAction: destructive,
             onPressed: () {
               onPressed();
               if (closeOnPress) {

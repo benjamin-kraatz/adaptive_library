@@ -106,7 +106,7 @@ Provide either an icon to use it on both designs, or define another icon for Cup
 
 ### AdaptiveAlertDialog
 
-*To use a platform based alert dialog, it is recommended to use `AdaptiveAlertDialog.show(/**/)`.*
+*To use a platform based alert dialog, it is recommended to use `AdaptiveAlertDialog.show(/**/)` instead of using it as a widget.*
 
 
 ```dart
@@ -128,3 +128,26 @@ If you really do not want to use action buttons, set an empty array.
 
 *This is not necessary for Material styled dialogs.*
 
+#### Define actions
+
+```dart
+actions: [
+  AdaptiveAlertDialogButton(
+                child: Text('OK'),
+                destructive: true,
+                onPressed: () {
+                    //do stuff here
+                },
+              ),
+  AdaptiveAlertDialogButton(
+                closeOnPress: true,
+                child: Text('Thanks'),
+                onPressed: null,
+              ),
+]
+```
+
+AdaptiveAlertDialogButton decides whether to use a `FlatButton` or a `CupertinoDialogAction`.
+You can leave out `onPressed` or set it to null; by setting `closeOnPress` to true, the dialog is dismissed, regardless of `onPressed` being set.
+
+Setting `destructive` enables the typically red colored button that indicates a "destructive/cancel" action in Cupertino styled dialogs.

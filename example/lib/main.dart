@@ -51,11 +51,22 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
           icon: Icon(Icons.check_circle_outline),
           iconCupertino: Icon(CupertinoIcons.check_mark_circled),
           onPressed: () {
-            AdaptiveAlertDialog.show(
-              context,
-              adaptiveState: AdaptiveState.Cupertino,
-              title: Text('Hallooooo'),
-            );
+            AdaptiveAlertDialog.show(context,
+                adaptiveState: AdaptiveState.Cupertino,
+                title: Text('Hallooooo'),
+                actions: [
+                  AdaptiveAlertDialogButton(
+                    child: Text('OK'),
+                    onPressed: () {
+                      //do stuff here
+                    },
+                  ),
+                  AdaptiveAlertDialogButton(
+                    closeOnPress: true,
+                    child: Text('Thanks'),
+                    onPressed: null,
+                  ),
+                ]);
           },
         ),
       ),
