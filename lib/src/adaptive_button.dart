@@ -2,9 +2,17 @@ import 'package:adaptive_library/adaptive_library.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// A button that displays either a [FlatButton] or a [CupertinoButton]
+/// ([RaisedButton] or [CupertinoButton.filled] respectively) based on which platform the app
+/// is currently running.
 class AdaptiveButton extends StatelessWidget {
+  /// The button's content
   final Widget child;
+
+  /// The press callback
   final VoidCallback onPressed;
+
+  /// Internally used.
   final bool _raised;
 
   /// Recommended to use [ThemeData] in [AdaptiveApp] to set the button's color.
