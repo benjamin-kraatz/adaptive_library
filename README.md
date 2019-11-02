@@ -151,3 +151,7 @@ AdaptiveAlertDialogButton decides whether to use a `FlatButton` or a `CupertinoD
 You can leave out `onPressed` or set it to null; by setting `closeOnPress` to true, the dialog is dismissed, regardless of `onPressed` being set.
 
 Setting `destructive` enables the typically red colored button that indicates a "destructive/cancel" action in Cupertino styled dialogs.
+
+## What else?
+
+There are more widgets coming up in the future, so keep track!
