@@ -18,7 +18,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveInheritance(
-      adaptiveState: AdaptiveInheritance.getStateByPlatform(),
+      adaptiveState:
+          AdaptiveState.Cupertino, // AdaptiveInheritance.getStateByPlatform(),
       child: AdaptiveApp(
         materialTheme: ThemeData(
             accentColor: Colors.red,
@@ -52,6 +53,24 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             AdaptiveProgressIndicator(),
+            AdaptiveListTile(
+              title: Text('Brightness'),
+              subtitle: Text('Change brightness'),
+              onTap: () {
+                AdaptiveAlertDialog.show(
+                  context,
+                  adaptiveState: AdaptiveInheritance.getStateByPlatform(),
+                  title: Text('Brightness cannot be set'),
+                  content: Text('Truly, this is only an example application.'),
+                  actions: [
+                    AdaptiveAlertDialogButton(
+                      child: Text("I'll try my phone app"),
+                      onPressed: null,
+                    ),
+                  ],
+                );
+              },
+            ),
             AdaptiveIconButton(
               icon: Icon(Icons.check_circle_outline),
               iconCupertino: Icon(CupertinoIcons.check_mark_circled),
