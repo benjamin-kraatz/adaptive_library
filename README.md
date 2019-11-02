@@ -205,6 +205,7 @@ AdaptiveListTile(
 ```
 
 On Cupertino, there is a little grey row with borders, like the typical settings entry known from iOS.
+`leading`, `trailing` and `dense` will not work on Cupertino.
 
 ## What else?
 
