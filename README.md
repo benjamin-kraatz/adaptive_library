@@ -39,7 +39,7 @@ AdaptiveInheritance(
 
 Typically, AdaptiveInheritance is the parent of the whole app. It enabled the functionality to reload all the widgets that are based on Platform state at the same time.
 
-`adaptiveState` is set by an enum containing the fields; *and if you want to set it dynamically, simply call `AdaptiveInheritance.getStateByPlatform()`*.
+`adaptiveState` is set by an enum containing the fields; **and if you want to set it dynamically, simply call `AdaptiveInheritance.getStateByPlatform()`**.
 This method uses Dart's io package to find out which Platform the app is currently running on, providing the correct AdaptiveState.
 
 
