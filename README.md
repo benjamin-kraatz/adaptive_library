@@ -2,13 +2,24 @@
 
 A set of Widgets that create a native look and feel on iOS and Android.
 
+Flutter already gives us a great library for Material and Cupertino widgets.
+But as a cross platform tool, Flutter does *not* provide a good way of displaying the right widgets at the right place.
+
+*adaptive_library* crashes in and... *here it is!* 
+
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+To get started, import the package to your app, after [getting the package](https://pub.dev/packages/adaptive_library).
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```dart
+import 'package:adaptive_library/adaptive_library.dart';
+```
+
+## The widgets
+
+Our library currently includes 7 widgets that can be used to create a native look and feel on iOS and Android devices.
+There are more in the future, so stay tuned.
+
+### Important things in advance
+
+adaptive_library uses the concept of `InheritedWidget` to get access to the current platform. This makes sure that you do not need to reenter `Platform.isAndroid || Platform.isIOS` or whatever, every time you need a widget. And yes, Flutter~ing~ is done by widgets.
