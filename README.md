@@ -80,10 +80,10 @@ You can specify a color for Material button style, but it is recommended to set 
 #### Raised/filled
 
 The code, by default, creates a `FlatButton` or `CupertinoButton` respectively.
-To use raised or filled version, append `.filled` like so:
+To use raised or filled version, append `.raised` like so:
 
 ```dart
-AdaptiveButton.filled(
+AdaptiveButton.raised(
     //...
 )
 
