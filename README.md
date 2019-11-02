@@ -60,5 +60,19 @@ Use this do enable Material or Cupertino design for your app.
 Like the "originals", you can set parameters like `debugShowCheckedModeBanner` and `home` to define you App.
 The full list of parameters are growing, and can be inspected in the class.
 
+#### Theming
+
+`materialTheme` and `cupertinoTheme` is used to apply the correct themeData to your app.
 
 ### AdaptiveButton
+
+```dart
+AdaptiveButton(
+    child: Text('Your child'),
+    onPressed: () => null,
+)
+```
+
+As you can see, you can simply replace `FlatButton`, `CupertinoButton` or other buttons by `AdaptiveButton`. No need to change parameters.
+
+You can specify a color for Material button style, but it is recommended to set via the theme in AdaptiveApp.
