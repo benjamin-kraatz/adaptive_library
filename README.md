@@ -25,7 +25,7 @@ There are more in the future, so stay tuned.
 
 ### Important things in advance
 
-adaptive_library uses the concept of `InheritedWidget` to get access to the current platform. This makes sure that you do not need to reenter `Platform.isAndroid || Platform.isIOS` or whatever, every time you need a widget. And yes, "Fluttering" is done by widgets.
+adaptive_library uses the concept of `InheritedWidget` to get access to the current platform. This makes sure that you do not need to reenter `Platform.isAndroid || Platform.isIOS` or whatever, every time you need a widget. And yes, "Fluttering" is done by widgets, so this would be... nah. ;)
 
 ### AdaptiveInheritance
 
