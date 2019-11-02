@@ -85,8 +85,13 @@ class AdaptiveAlertDialog extends StatefulWidget {
           );
   }
 
+  /// Dialog's title
   final Widget title;
+
+  /// The dialog's content
   final Widget content;
+
+  /// The dialog's actions. It is recommended (and asserted) to either provide actions or an empty array for Cupertino styled dialogs.
   final List<AdaptiveAlertDialogButton> actions;
 
   AdaptiveAlertDialog({this.title, this.content, this.actions});
