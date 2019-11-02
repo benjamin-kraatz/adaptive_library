@@ -181,6 +181,16 @@ You can leave out `onPressed` or set it to null; by setting `closeOnPress` to tr
 
 Setting `destructive` enables the typically red colored button that indicates a "destructive/cancel" action in Cupertino styled dialogs.
 
+### AdaptiveProgressIndicator
+
+```dart
+AdaptiveProgressIndicator()
+AdaptiveProgressIndicator(value: 45)            
+```
+
+Either displays a `CircularProgressIndicator` or a `CupertinoActivityIndicator`.
+`value` is ignored on Cupertino style.
+
 ## What else?
 
 There are more widgets coming up in the future, so keep track!
