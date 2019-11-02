@@ -25,3 +25,24 @@ There are more in the future, so stay tuned.
 adaptive_library uses the concept of `InheritedWidget` to get access to the current platform. This makes sure that you do not need to reenter `Platform.isAndroid || Platform.isIOS` or whatever, every time you need a widget. And yes, "Fluttering" is done by widgets.
 
 ### AdaptiveInheritance
+
+`AdaptiveInheritance` is the core class. Every adaptive widget needs it, because it defines the Platform "state" (-> Android or iOS).
+
+```dart
+AdaptiveInheritance(
+      adaptiveState: AdaptiveState.Cupertino,
+      child: AdaptiveApp(
+          //
+      ),
+    );
+```
+
+Typically, AdaptiveInheritance is the parent of the whole app. It enabled the functionality to reload all the widgets that are based on Platform state at the same time.
+
+`adaptiveState` is set by an enum containing the fields; and if you want to set it dynamically, simply call `AdaptiveInheritance.getStateByPlatform()`.
+This method uses Dart's io package to find out which Platform the app is currently running on, providing the correct AdaptiveState.
+
+
+In this example, the direct child is AdaptiveApp, that combines `MaterialApp` and `CupertinoApp`.
+
+### AdaptiveApp

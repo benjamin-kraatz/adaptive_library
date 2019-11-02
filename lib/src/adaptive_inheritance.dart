@@ -1,8 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 enum AdaptiveState { Cupertino, Material }
 
 class AdaptiveInheritance extends InheritedWidget {
+  static AdaptiveState getStateByPlatform() {
+    return Platform.isAndroid
+        ? AdaptiveState.Material
+        : Platform.isIOS ? AdaptiveState.Cupertino : AdaptiveState.Material;
+  }
+
   const AdaptiveInheritance({
     Key key,
     @required this.adaptiveState,
