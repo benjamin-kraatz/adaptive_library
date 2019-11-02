@@ -1,3 +1,7 @@
+## [0.2.4] - ListTile and ProgressIndicator added
+
+* Adding support for adaptive ListTile and ProgressIndicator.
+
 ## [0.2.3] - Fixed onPressed null
 
 * Not setting onPressed on AdaptiveAlertDialogButton causes the app to crash

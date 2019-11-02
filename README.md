@@ -17,7 +17,7 @@ import 'package:adaptive_library/adaptive_library.dart';
 
 ## The widgets
 
-Our library currently contains 7 widgets that can be used to create a native look and feel on iOS and Android devices.
+Our library currently contains 9 widgets that can be used to create a native look and feel on iOS and Android devices.
 There are more in the future, so stay tuned.
 
 ***Most of the time, you can replace the base class name of a widget with the ones from this library. You do not need to rename or remove parameters; though at some points you eventually need to add one parameter***
