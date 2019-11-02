@@ -58,7 +58,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               onPressed: () async {
                 String res = await AdaptiveAlertDialog.show<String>(
                   context,
-                  adaptiveState: AdaptiveState.Cupertino,
+                  adaptiveState: AdaptiveInheritance.getStateByPlatform(),
                   title: Text('Just saying hello'),
                   content: Text('Your content in a dialog goes here.'),
                   actions: [
@@ -89,7 +89,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
 
                 AdaptiveAlertDialog.show(
                   context,
-                  adaptiveState: AdaptiveState.Material,
+                  adaptiveState: AdaptiveInheritance.getStateByPlatform(),
                   title: Text('Pressed OK?'),
                   content: Text('We see everything...'),
                   actions: [

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class AdaptiveProgressIndicator extends StatelessWidget {
+  /// This affects only Material's [CircularProgressIndicator]
   final value;
 
   AdaptiveProgressIndicator({this.value});
