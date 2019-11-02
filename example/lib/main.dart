@@ -47,54 +47,61 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
     return AdaptiveScaffold(
       title: Text('Tester App for AdaptiveLibrary'),
       body: Center(
-        child: AdaptiveIconButton(
-          icon: Icon(Icons.check_circle_outline),
-          iconCupertino: Icon(CupertinoIcons.check_mark_circled),
-          onPressed: () async {
-            String res = await AdaptiveAlertDialog.show<String>(
-              context,
-              adaptiveState: AdaptiveState.Cupertino,
-              title: Text('Just saying hello'),
-              content: Text('Your content in a dialog goes here.'),
-              actions: [
-                AdaptiveAlertDialogButton(
-                  child: Text('OK'),
-                  closeOnPress: false,
-                  destructive: true,
-                  onPressed: () {
-                    //do stuff here
-                    Navigator.pop(context, "ok-press");
-                  },
-                ),
-                AdaptiveAlertDialogButton(
-                  closeOnPress: true,
-                  child: Text('Hello!'),
-                  onPressed: null,
-                ),
-                AdaptiveAlertDialogButton(
-                  child: Text('Thanks'),
-                  onPressed: null,
-                ),
-              ],
-            );
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            AdaptiveProgressIndicator(),
+            AdaptiveIconButton(
+              icon: Icon(Icons.check_circle_outline),
+              iconCupertino: Icon(CupertinoIcons.check_mark_circled),
+              onPressed: () async {
+                String res = await AdaptiveAlertDialog.show<String>(
+                  context,
+                  adaptiveState: AdaptiveState.Cupertino,
+                  title: Text('Just saying hello'),
+                  content: Text('Your content in a dialog goes here.'),
+                  actions: [
+                    AdaptiveAlertDialogButton(
+                      child: Text('OK'),
+                      closeOnPress: false,
+                      destructive: true,
+                      onPressed: () {
+                        //do stuff here
+                        Navigator.pop(context, "ok-press");
+                      },
+                    ),
+                    AdaptiveAlertDialogButton(
+                      closeOnPress: true,
+                      child: Text('Hello!'),
+                      onPressed: null,
+                    ),
+                    AdaptiveAlertDialogButton(
+                      child: Text('Thanks'),
+                      onPressed: null,
+                    ),
+                  ],
+                );
 
-            print('result: $res');
+                print('result: $res');
 
-            if (res == null) return;
+                if (res == null) return;
 
-            AdaptiveAlertDialog.show(
-              context,
-              adaptiveState: AdaptiveState.Material,
-              title: Text('Pressed OK?'),
-              content: Text('We see everything...'),
-              actions: [
-                AdaptiveAlertDialogButton(
-                  child: Text('Cool...'),
-                  onPressed: null,
-                ),
-              ],
-            );
-          },
+                AdaptiveAlertDialog.show(
+                  context,
+                  adaptiveState: AdaptiveState.Material,
+                  title: Text('Pressed OK?'),
+                  content: Text('We see everything...'),
+                  actions: [
+                    AdaptiveAlertDialogButton(
+                      child: Text('Cool...'),
+                      onPressed: null,
+                    ),
+                  ],
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
