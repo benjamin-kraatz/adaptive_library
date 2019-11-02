@@ -1,3 +1,5 @@
-## [0.0.1] - TODO: Add release date.
+## [0.2.1] - 02.11.2019
 
-* TODO: Describe initial release.
+* Initially published version.
+* Set of 7 widgets that can easily be used.
+* Use README.md as a guide
