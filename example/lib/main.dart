@@ -18,8 +18,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveInheritance(
-      adaptiveState:
-          AdaptiveState.Cupertino, // AdaptiveInheritance.getStateByPlatform(),
+      adaptiveState: AdaptiveInheritance.getStateByPlatform(),
       child: AdaptiveApp(
         materialTheme: ThemeData(
             accentColor: Colors.red,
