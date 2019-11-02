@@ -64,6 +64,32 @@ The full list of parameters are growing, and can be inspected in the class.
 
 `materialTheme` and `cupertinoTheme` is used to apply the correct themeData to your app.
 
+
+### AdaptiveScaffold
+
+This is a cool thing.
+
+```dart
+AdaptiveScaffold(
+      title: Text('Tests Page'),
+      body: Text('You content'),
+      actions: []
+    )
+```
+
+This is a replacement for `Scaffold` and `CupertinoScaffold` and combines them both.
+The title is set in the `AppBar` (`CupertinoNavigationBar`) and also, actions can be provided via actions field.
+
+On Cupertino, the default `CupertinoNavigationBar` is used. To get one with large title, simply
+
+```dart
+AdaptiveScaffold.large(
+      //...
+    )
+```
+
+This has no effect on Material style.
+
 ### AdaptiveButton
 
 ```dart
