@@ -20,6 +20,9 @@ import 'package:adaptive_library/adaptive_library.dart';
 Our library currently includes 7 widgets that can be used to create a native look and feel on iOS and Android devices.
 There are more in the future, so stay tuned.
 
+***Most of the time, you can replace the base class name of a widget with the ones from this library. You do not need to rename or remove parameters; though at some points you eventually need to add one parameter***
+*(This makes adaptive_library great, huh?)*
+
 ### Important things in advance
 
 adaptive_library uses the concept of `InheritedWidget` to get access to the current platform. This makes sure that you do not need to reenter `Platform.isAndroid || Platform.isIOS` or whatever, every time you need a widget. And yes, "Fluttering" is done by widgets.
@@ -46,3 +49,4 @@ This method uses Dart's io package to find out which Platform the app is current
 In this example, the direct child is AdaptiveApp, that combines `MaterialApp` and `CupertinoApp`.
 
 ### AdaptiveApp
+
