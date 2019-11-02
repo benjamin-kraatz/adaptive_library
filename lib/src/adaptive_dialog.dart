@@ -32,7 +32,7 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
         ? FlatButton(
             child: child,
             onPressed: () {
-              onPressed();
+              if (onPressed != null) onPressed();
               if (closeOnPress) {
                 Navigator.pop(context);
               }
@@ -42,7 +42,7 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
             child: child,
             isDestructiveAction: destructive,
             onPressed: () {
-              onPressed();
+              if (onPressed != null) onPressed();
               if (closeOnPress) {
                 Navigator.pop(context);
               }

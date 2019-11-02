@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveInheritance(
-      adaptiveState: AdaptiveState.Cupertino,
+      adaptiveState: AdaptiveInheritance.getStateByPlatform(),
       child: AdaptiveApp(
         materialTheme: ThemeData(
             accentColor: Colors.red,
@@ -50,23 +50,50 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
         child: AdaptiveIconButton(
           icon: Icon(Icons.check_circle_outline),
           iconCupertino: Icon(CupertinoIcons.check_mark_circled),
-          onPressed: () {
-            AdaptiveAlertDialog.show(context,
-                adaptiveState: AdaptiveState.Cupertino,
-                title: Text('Hallooooo'),
-                actions: [
-                  AdaptiveAlertDialogButton(
-                    child: Text('OK'),
-                    onPressed: () {
-                      //do stuff here
-                    },
-                  ),
-                  AdaptiveAlertDialogButton(
-                    closeOnPress: true,
-                    child: Text('Thanks'),
-                    onPressed: null,
-                  ),
-                ]);
+          onPressed: () async {
+            String res = await AdaptiveAlertDialog.show<String>(
+              context,
+              adaptiveState: AdaptiveState.Cupertino,
+              title: Text('Just saying hello'),
+              content: Text('Your content in a dialog goes here.'),
+              actions: [
+                AdaptiveAlertDialogButton(
+                  child: Text('OK'),
+                  closeOnPress: false,
+                  destructive: true,
+                  onPressed: () {
+                    //do stuff here
+                    Navigator.pop(context, "ok-press");
+                  },
+                ),
+                AdaptiveAlertDialogButton(
+                  closeOnPress: true,
+                  child: Text('Hello!'),
+                  onPressed: null,
+                ),
+                AdaptiveAlertDialogButton(
+                  child: Text('Thanks'),
+                  onPressed: null,
+                ),
+              ],
+            );
+
+            print('result: $res');
+
+            if (res == null) return;
+
+            AdaptiveAlertDialog.show(
+              context,
+              adaptiveState: AdaptiveState.Material,
+              title: Text('Pressed OK?'),
+              content: Text('We see everything...'),
+              actions: [
+                AdaptiveAlertDialogButton(
+                  child: Text('Cool...'),
+                  onPressed: null,
+                ),
+              ],
+            );
           },
         ),
       ),

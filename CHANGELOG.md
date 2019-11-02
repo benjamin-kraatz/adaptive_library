@@ -1,3 +1,7 @@
+## [0.2.2] - Fixed onPressed null
+
+* Not setting onPressed on AdaptiveAlertDialogButton causes the app to crash
+
 ## [0.2.2] - "Zero day patch"
 
 * Improved stability on AdaptiveScaffold

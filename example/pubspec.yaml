@@ -1,5 +1,5 @@
-name: async_manager_example
-description: Demonstrates how to use the async_manager plugin.
+name: adaptive_library_example
+description: Demonstrates how to use the adaptive_library plugin.
 publish_to: 'none'
 
 environment:
