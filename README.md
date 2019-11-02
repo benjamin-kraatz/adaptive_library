@@ -50,3 +50,15 @@ In this example, the direct child is AdaptiveApp, that combines `MaterialApp` an
 
 ### AdaptiveApp
 
+```dart
+AdaptiveApp(
+        home: HomeScreenPage(),
+      )
+```
+
+Use this do enable Material or Cupertino design for your app.
+Like the "originals", you can set parameters like `debugShowCheckedModeBanner` and `home` to define you App.
+The full list of parameters are growing, and can be inspected in the class.
+
+
+### AdaptiveButton
