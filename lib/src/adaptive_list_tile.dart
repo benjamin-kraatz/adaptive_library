@@ -50,7 +50,7 @@ class AdaptiveListTile extends StatelessWidget {
         : GestureDetector(
             onTap: onTap,
             onLongPress: onLongPress,
-            child: CupertinoListTile(
+            child: _CupertinoListTile(
               title is Text ? (title as Text).data : '',
               null,
               content: subtitle,
@@ -60,14 +60,14 @@ class AdaptiveListTile extends StatelessWidget {
   }
 }
 
-class CupertinoListTile extends StatelessWidget {
+class _CupertinoListTile extends StatelessWidget {
   final Widget title;
   final Widget content;
   final String description;
   final Color backgroundColorDark;
   final bool selected;
 
-  const CupertinoListTile(
+  const _CupertinoListTile(
     this.description,
     this.title, {
     this.content,

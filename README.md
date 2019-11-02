@@ -191,6 +191,21 @@ AdaptiveProgressIndicator(value: 45)
 Either displays a `CircularProgressIndicator` or a `CupertinoActivityIndicator`.
 `value` is ignored on Cupertino style.
 
+
+### AdaptiveListTile
+
+```dart
+AdaptiveListTile(
+              title: Text('Brightness'),
+              subtitle: Text('Change brightness'),
+              onTap: () {
+                //do stuff here.
+              },
+            )
+```
+
+On Cupertino, there is a little grey row with borders, like the typical settings entry known from iOS.
+
 ## What else?
 
 There are more widgets coming up in the future, so keep track!
