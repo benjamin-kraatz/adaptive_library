@@ -1,4 +1,4 @@
-## [0.2.2] - Fixed onPressed null
+## [0.2.3] - Fixed onPressed null
 
 * Not setting onPressed on AdaptiveAlertDialogButton causes the app to crash
 
