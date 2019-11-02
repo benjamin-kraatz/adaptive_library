@@ -51,9 +51,13 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
   }
 }
 
-///
+/// Displays a native looking alert dialog.
+/// It is recommended to use [AdaptiveAlertDialog.show] instead of using it as a widget.
 class AdaptiveAlertDialog extends StatefulWidget {
-  static void show(BuildContext context,
+  /// Show the dialog, having [title] and [content] set. Also, you can set actions.
+  /// To get a type or data returned, use [T] to set.
+  /// A Future<T> is returned.
+  static Future<T> show<T>(BuildContext context,
       {@required AdaptiveState adaptiveState,
       Widget title,
       Widget content,
@@ -62,8 +66,8 @@ class AdaptiveAlertDialog extends StatefulWidget {
         (adaptiveState == AdaptiveState.Cupertino && actions != null) ||
             adaptiveState == AdaptiveState.Material,
         'It is recommended to provide buttons on Cupertino styled alerts, because iOS devices have no native "back" button like Android devices do. You can of course provide an empty array via []');
-    adaptiveState == AdaptiveState.Material
-        ? showDialog(
+    return adaptiveState == AdaptiveState.Material
+        ? showDialog<T>(
             context: context,
             builder: (_) => AdaptiveAlertDialog(
               title: title,
@@ -71,7 +75,7 @@ class AdaptiveAlertDialog extends StatefulWidget {
               actions: actions ?? [],
             ),
           )
-        : showCupertinoDialog(
+        : showCupertinoDialog<T>(
             context: context,
             builder: (_) => AdaptiveAlertDialog(
               title: title,

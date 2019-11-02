@@ -110,7 +110,7 @@ Provide either an icon to use it on both designs, or define another icon for Cup
 
 
 ```dart
-AdaptiveAlertDialog.show(
+AdaptiveAlertDialog.show<String>(
               context,
               adaptiveState: AdaptiveState.Cupertino,
               title: Text('Hallo'),
@@ -120,6 +120,9 @@ AdaptiveAlertDialog.show(
 ```
 
 Unlike the other widgets, you need to set the AdaptiveState manually right now. (*We're working on this*).
+
+Show uses a generic parameter that lets you specify the data you want to return.
+> Notice: Using `closeOnPress` with AdaptiveAlertDialogButton, the dialog is dismissed without any parameter. To get the result of a dialog, go like the normal way and specify it inside the ActionButtons. 
 
 #### The actions
 
