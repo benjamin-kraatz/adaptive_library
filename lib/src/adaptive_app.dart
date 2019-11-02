@@ -2,11 +2,23 @@ import 'package:adaptive_library/adaptive_library.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+/// Use this class as your app.
+/// Some parameters are going to be added.
+/// Make sure to wrap this widget inside [AdaptiveInheritance] directly.
 class AdaptiveApp extends StatelessWidget {
+  /// Your app's title.
   final String title;
+
+  /// This little badge in the top right corner. True by default.
   final bool debugShowCheckedModeBanner;
+
+  /// Your app widget tree.
   final Widget home;
+
+  /// To specify theme data for a Material app, use this field.
   final ThemeData materialTheme;
+
+  /// To specify theme data for a Cupertino app, use this field.
   final CupertinoThemeData cupertinoTheme;
 
   AdaptiveApp({
