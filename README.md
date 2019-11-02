@@ -155,3 +155,7 @@ Setting `destructive` enables the typically red colored button that indicates a 
 ## What else?
 
 There are more widgets coming up in the future, so keep track!
+
+### I have an idea
+
+Great. Pull requests are very welcome!
