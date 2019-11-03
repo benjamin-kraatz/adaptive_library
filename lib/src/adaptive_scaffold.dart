@@ -14,21 +14,27 @@ class AdaptiveScaffold extends StatefulWidget {
 
   AdaptiveScaffold(
       {this.scaffoldKey,
-      @required this.title,
+      this.title,
       @required this.body,
       this.actions,
       this.appBar,
       this.cupertinoNavigationBar})
-      : largeCupertino = false;
+      : assert(
+            title != null && (appBar == null || cupertinoNavigationBar == null),
+            'When setting a title, we assume that you do not want to customize app bars. To set a title for only one app bar, set the other to null.'),
+        largeCupertino = false;
 
   AdaptiveScaffold.large(
       {this.scaffoldKey,
-      @required this.title,
+      this.title,
       @required this.body,
       this.actions,
       this.appBar,
       this.cupertinoNavigationBar})
-      : largeCupertino = true;
+      : assert(
+            title != null && (appBar == null || cupertinoNavigationBar == null),
+            'When setting a title, we assume that you do not want to customize app bars. To set a title for only one app bar, set the other to null.'),
+        largeCupertino = true;
 
   @override
   _AdaptiveScaffoldState createState() => _AdaptiveScaffoldState();
