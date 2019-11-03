@@ -1,3 +1,7 @@
+## [0.2.5] - Adjust Scaffold's data
+
+* If needed, a custom AppBar or CupertinoNavigationBar can now be used.
+
 ## [0.2.4] - ListTile and ProgressIndicator added
 
 * Adding support for adaptive ListTile and ProgressIndicator.

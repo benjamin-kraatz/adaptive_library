@@ -6,13 +6,24 @@ class AdaptiveScaffold extends StatefulWidget {
   final Widget title;
   final Widget body;
   final List<Widget> actions;
+  final Widget appBar;
+  final CupertinoNavigationBar cupertinoNavigationBar;
 
   final bool largeCupertino;
 
-  AdaptiveScaffold({@required this.title, @required this.body, this.actions})
+  AdaptiveScaffold(
+      {@required this.title,
+      @required this.body,
+      this.actions,
+      this.appBar,
+      this.cupertinoNavigationBar})
       : largeCupertino = false;
   AdaptiveScaffold.large(
-      {@required this.title, @required this.body, this.actions})
+      {@required this.title,
+      @required this.body,
+      this.actions,
+      this.appBar,
+      this.cupertinoNavigationBar})
       : largeCupertino = true;
 
   @override
@@ -26,22 +37,24 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? Scaffold(
-            appBar: AppBar(
-              title: widget.title,
-              actions: widget.actions,
-            ),
+            appBar: widget.appBar ??
+                AppBar(
+                  title: widget.title,
+                  actions: widget.actions,
+                ),
             body: widget.body,
           )
         : CupertinoPageScaffold(
-            navigationBar: widget.largeCupertino
-                ? null
-                : CupertinoNavigationBar(
-                    middle: widget.title,
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: widget.actions ?? [],
-                    ),
-                  ),
+            navigationBar:
+                widget.cupertinoNavigationBar ?? widget.largeCupertino
+                    ? null
+                    : CupertinoNavigationBar(
+                        middle: widget.title,
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: widget.actions ?? [],
+                        ),
+                      ),
             child: SafeArea(
               child: widget.largeCupertino
                   ? CustomScrollView(
