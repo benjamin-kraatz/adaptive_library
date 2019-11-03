@@ -90,6 +90,10 @@ AdaptiveScaffold.large(
 
 This has no effect on Material style.
 
+#### Custom `AppBar` (`CupertinoNavigationBar`)
+
+If you want to have you app bar customized, set either the `appBar` or `cupertinoNavigationBar` property on `AdaptiveScaffold`.
+
 ### AdaptiveButton
 
 ```dart
