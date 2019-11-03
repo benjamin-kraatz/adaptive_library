@@ -1,3 +1,7 @@
+## [0.2.8] - Assertions in AdaptiveScaffold removed.
+
+* The're not useful. Title is auto ignored on a null app bar
+
 ## [0.2.7] - Assertions in AdaptiveScaffold
 
 * Setting a title on AdaptiveScaffold requires the app bars to be null.

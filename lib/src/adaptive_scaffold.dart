@@ -19,13 +19,7 @@ class AdaptiveScaffold extends StatefulWidget {
       this.actions,
       this.appBar,
       this.cupertinoNavigationBar})
-      : assert(
-            title != null && (appBar == null || cupertinoNavigationBar == null),
-            'When setting a title, we assume that you do not want to customize app bars. To set a title for only one app bar, set the other to null.'),
-        assert(
-            title == null && (appBar != null && cupertinoNavigationBar != null),
-            'Not setting a title requires both app bars to be not null.'),
-        largeCupertino = false;
+      : largeCupertino = false;
 
   AdaptiveScaffold.large(
       {this.scaffoldKey,
@@ -34,13 +28,7 @@ class AdaptiveScaffold extends StatefulWidget {
       this.actions,
       this.appBar,
       this.cupertinoNavigationBar})
-      : assert(
-            title != null && (appBar == null || cupertinoNavigationBar == null),
-            'When setting a title, we assume that you do not want to customize app bars. To set a title for only one app bar, set the other to null.'),
-        assert(
-            title == null && (appBar != null && cupertinoNavigationBar != null),
-            'Not setting a title requires both app bars to be not null.'),
-        largeCupertino = true;
+      : largeCupertino = true;
 
   @override
   _AdaptiveScaffoldState createState() => _AdaptiveScaffoldState();
