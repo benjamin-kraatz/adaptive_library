@@ -1,3 +1,8 @@
+## [0.2.6] - Keys added to all widgets
+
+* All widgets now contain a key parameter.
+* AdaptiveScaffold contains a key "scaffoldKey".
+
 ## [0.2.5] - Adjust Scaffold's data
 
 * If needed, a custom AppBar or CupertinoNavigationBar can now be used.

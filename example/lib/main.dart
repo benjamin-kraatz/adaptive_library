@@ -18,7 +18,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveInheritance(
-      adaptiveState: AdaptiveInheritance.getStateByPlatform(),
+      adaptiveState:
+          AdaptiveState.Cupertino, // AdaptiveInheritance.getStateByPlatform(),
       child: AdaptiveApp(
         materialTheme: ThemeData(
             accentColor: Colors.red,
@@ -37,6 +38,8 @@ class HomeScreenPage extends StatefulWidget {
 }
 
 class _HomeScreenPageState extends State<HomeScreenPage> {
+  final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
+
   @override
   void initState() {
     super.initState();
@@ -45,6 +48,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveScaffold(
+      scaffoldKey: _globalKey,
       title: Text('Tester App for AdaptiveLibrary'),
       body: Center(
         child: Column(
@@ -56,9 +60,10 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               title: Text('Brightness'),
               subtitle: Text('Change brightness'),
               onTap: () {
-                AdaptiveAlertDialog.show(
+                AdaptiveAlertDialog.show<String>(
                   context,
-                  adaptiveState: AdaptiveInheritance.getStateByPlatform(),
+                  adaptiveState: AdaptiveState
+                      .Cupertino, //AdaptiveInheritance.getStateByPlatform(),
                   title: Text('Brightness cannot be set'),
                   content: Text('Truly, this is only an example application.'),
                   actions: [
@@ -76,7 +81,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               onPressed: () async {
                 String res = await AdaptiveAlertDialog.show<String>(
                   context,
-                  adaptiveState: AdaptiveInheritance.getStateByPlatform(),
+                  adaptiveState: AdaptiveState
+                      .Cupertino, //AdaptiveInheritance.getStateByPlatform(),
                   title: Text('Just saying hello'),
                   content: Text('Your content in a dialog goes here.'),
                   actions: [
@@ -105,18 +111,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
 
                 if (res == null) return;
 
-                AdaptiveAlertDialog.show(
-                  context,
-                  adaptiveState: AdaptiveInheritance.getStateByPlatform(),
-                  title: Text('Pressed OK?'),
-                  content: Text('We see everything...'),
-                  actions: [
-                    AdaptiveAlertDialogButton(
-                      child: Text('Cool...'),
-                      onPressed: null,
-                    ),
-                  ],
-                );
+                _globalKey.currentState.showSnackBar(SnackBar(
+                  content: Text('You just pressed ok, I think'),
+                  action: SnackBarAction(
+                    label: 'Yes',
+                    onPressed: () => null,
+                  ),
+                ));
               },
             ),
           ],

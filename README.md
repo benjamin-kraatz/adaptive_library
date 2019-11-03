@@ -94,6 +94,12 @@ This has no effect on Material style.
 
 If you want to have you app bar customized, set either the `appBar` or `cupertinoNavigationBar` property on `AdaptiveScaffold`.
 
+#### Key
+
+You can of course assign a key to the Scaffolds, to show a SnackBar for example.
+The field is `scaffoldKey`.
+
+
 ### AdaptiveButton
 
 ```dart

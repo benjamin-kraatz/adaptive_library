@@ -22,12 +22,13 @@ class AdaptiveApp extends StatelessWidget {
   final CupertinoThemeData cupertinoTheme;
 
   AdaptiveApp({
+    Key key,
     this.materialTheme,
     this.cupertinoTheme,
     this.debugShowCheckedModeBanner = true,
     this.title,
     this.home,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -26,11 +26,13 @@ class AdaptiveButton extends StatelessWidget {
         _raised = false;
 
   AdaptiveButton.raised({
+    Key key,
     @required this.child,
     this.onPressed,
     this.buttonColor = Colors.blue,
   })  : assert(child != null, 'Give me a child.'),
-        _raised = true;
+        _raised = true,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

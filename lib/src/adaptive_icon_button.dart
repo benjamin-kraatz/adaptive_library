@@ -8,10 +8,12 @@ class AdaptiveIconButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   AdaptiveIconButton({
+    Key key,
     @required this.icon,
     this.iconCupertino,
     this.onPressed,
-  }) : assert(icon != null, 'We need an icon to see what is goung on.');
+  })  : assert(icon != null, 'We need an icon to see what is goung on.'),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

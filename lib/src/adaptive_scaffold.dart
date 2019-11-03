@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class AdaptiveScaffold extends StatefulWidget {
+  final GlobalKey<ScaffoldState> scaffoldKey;
   final Widget title;
   final Widget body;
   final List<Widget> actions;
@@ -12,14 +13,17 @@ class AdaptiveScaffold extends StatefulWidget {
   final bool largeCupertino;
 
   AdaptiveScaffold(
-      {@required this.title,
+      {this.scaffoldKey,
+      @required this.title,
       @required this.body,
       this.actions,
       this.appBar,
       this.cupertinoNavigationBar})
       : largeCupertino = false;
+
   AdaptiveScaffold.large(
-      {@required this.title,
+      {this.scaffoldKey,
+      @required this.title,
       @required this.body,
       this.actions,
       this.appBar,
@@ -37,6 +41,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? Scaffold(
+            key: widget.scaffoldKey,
             appBar: widget.appBar ??
                 AppBar(
                   title: widget.title,
@@ -45,6 +50,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
             body: widget.body,
           )
         : CupertinoPageScaffold(
+            key: widget.scaffoldKey,
             navigationBar:
                 widget.cupertinoNavigationBar ?? widget.largeCupertino
                     ? null
