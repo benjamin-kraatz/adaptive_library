@@ -1,3 +1,8 @@
+## [0.2.7] - Assertions in AdaptiveScaffold
+
+* Setting a title on AdaptiveScaffold requires the app bars to be null.
+* Not setting a title requires both app bars to be set.
+
 ## [0.2.6] - Keys added to all widgets
 
 * All widgets now contain a key parameter.
