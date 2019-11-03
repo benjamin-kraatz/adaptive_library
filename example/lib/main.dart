@@ -49,7 +49,6 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   Widget build(BuildContext context) {
     return AdaptiveScaffold(
       scaffoldKey: _globalKey,
-      title: Text('Tester App for AdaptiveLibrary'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

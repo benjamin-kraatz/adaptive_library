@@ -1,3 +1,7 @@
+## [0.2.9] - Improved AdaptiveScaffold
+
+* An AppBar is no longer required in AdaptiveScaffold.
+
 ## [0.2.8] - Assertions in AdaptiveScaffold removed.
 
 * The're not useful. Title is auto ignored on a null app bar
