@@ -42,7 +42,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? Scaffold(
             key: widget.scaffoldKey,
-            appBar: widget.title == null
+            appBar: widget.title == null && widget.appBar == null
                 ? null
                 : widget.appBar ??
                     AppBar(
@@ -54,17 +54,16 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
         : CupertinoPageScaffold(
             key: widget.scaffoldKey,
             navigationBar:
-                widget.cupertinoNavigationBar ?? widget.largeCupertino
+                widget.title == null && widget.cupertinoNavigationBar == null
                     ? null
-                    : widget.title == null
-                        ? null
-                        : CupertinoNavigationBar(
-                            middle: widget.title,
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: widget.actions ?? [],
-                            ),
+                    : widget.cupertinoNavigationBar ??
+                        CupertinoNavigationBar(
+                          middle: widget.title,
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: widget.actions ?? [],
                           ),
+                        ),
             child: SafeArea(
               child: widget.largeCupertino
                   ? CustomScrollView(

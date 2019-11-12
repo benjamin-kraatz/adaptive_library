@@ -1,3 +1,7 @@
+## [0.2.9+1] - Fix Scaffold crash
+
+* Null checks for app bars.
+
 ## [0.2.9] - Improved AdaptiveScaffold
 
 * An AppBar is no longer required in AdaptiveScaffold.
