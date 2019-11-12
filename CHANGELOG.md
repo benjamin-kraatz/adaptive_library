@@ -1,3 +1,7 @@
+## [0.3.0] - Switch added
+
+* Flutter already has a Switch.adaptive, but the platform for this widget cannot dynamically be adjusted.
+
 ## [0.2.9+2] - Fix Scaffold crash (2)
 
 * Check if large navBar for Cupertino.
