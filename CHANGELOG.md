@@ -1,3 +1,7 @@
+## [0.2.9+2] - Fix Scaffold crash (2)
+
+* Check if large navBar for Cupertino.
+
 ## [0.2.9+1] - Fix Scaffold crash
 
 * Null checks for app bars.

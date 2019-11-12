@@ -56,14 +56,17 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
             navigationBar:
                 widget.title == null && widget.cupertinoNavigationBar == null
                     ? null
-                    : widget.cupertinoNavigationBar ??
-                        CupertinoNavigationBar(
-                          middle: widget.title,
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: widget.actions ?? [],
-                          ),
-                        ),
+                    : widget.cupertinoNavigationBar == null
+                        ? widget.largeCupertino
+                            ? null
+                            : CupertinoNavigationBar(
+                                middle: widget.title,
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: widget.actions ?? [],
+                                ),
+                              )
+                        : widget.cupertinoNavigationBar,
             child: SafeArea(
               child: widget.largeCupertino
                   ? CustomScrollView(
