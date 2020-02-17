@@ -1,3 +1,7 @@
+## [0.3.4] - Icon button fixes
+
+* IconButton now contains `color` and `tooltip` fields
+
 ## [0.3.3] - Bug fixes
 
 * Do not use *0.3.2* cause it contains a critical issue. Recommended to update to this version
