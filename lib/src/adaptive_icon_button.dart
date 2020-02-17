@@ -6,10 +6,12 @@ class AdaptiveIconButton extends StatelessWidget {
   final Widget icon;
   final Widget iconCupertino;
   final VoidCallback onPressed;
+  final String tooltip;
 
   AdaptiveIconButton({
     Key key,
     @required this.icon,
+    this.tooltip,
     this.iconCupertino,
     this.onPressed,
   })  : assert(icon != null, 'We need an icon to see what is goung on.'),
@@ -23,6 +25,7 @@ class AdaptiveIconButton extends StatelessWidget {
         ? IconButton(
             icon: icon,
             onPressed: onPressed,
+            tooltip: tooltip,
           )
         : CupertinoButton(
             child: iconCupertino ?? icon,
