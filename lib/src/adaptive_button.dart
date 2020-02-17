@@ -18,6 +18,15 @@ class AdaptiveButton extends StatelessWidget {
   /// The button's color
   final Color color;
 
+  /// This is used on Material only; specifies the appearance of the text in contrast to button's surface color. NOTE: no effect on Cupertino.
+  final ButtonTextTheme textTheme;
+
+  /// The color usually taken for a click/hover. NOTE: no effect on Cupertino.
+  final Color hoverColor;
+
+  /// The color usually taken for a material ripple effect. NOTE: no effect on Cupertino.
+  final Color highlightColor;
+
   /// Recommended to use [ThemeData] in [AdaptiveApp] to set the button's color.
   @deprecated
   final Color buttonColor;
@@ -25,8 +34,12 @@ class AdaptiveButton extends StatelessWidget {
   AdaptiveButton({
     @required this.child,
     this.onPressed,
+    this.textTheme,
+    this.hoverColor,
+    this.highlightColor,
     this.buttonColor = Colors.blue,
     this.color = Colors.blue,
+    this.textTheme,
   })  : assert(child != null, 'Give me a child.'),
         _raised = false;
 
@@ -34,6 +47,9 @@ class AdaptiveButton extends StatelessWidget {
     Key key,
     @required this.child,
     this.onPressed,
+    this.textTheme,
+    this.hoverColor,
+    this.highlightColor,
     this.buttonColor = Colors.blue,
     this.color = Colors.blue,
   })  : assert(child != null, 'Give me a child.'),
@@ -50,10 +66,16 @@ class AdaptiveButton extends StatelessWidget {
                 child: child,
                 onPressed: onPressed,
                 color: color,
+                textTheme: textTheme,
+                hoverColor: hoverColor,
+                highlightColor: highlightColor,
               )
             : FlatButton(
                 child: child,
                 onPressed: onPressed,
+                textTheme: textTheme,
+                hoverColor: hoverColor,
+                highlightColor: highlightColor,
               )
         : _raised
             ? CupertinoButton.filled(
