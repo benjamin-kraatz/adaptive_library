@@ -1,10 +1,14 @@
+## [0.3.2] - Fields added to RaisedButton
+
+* `AdaptiveButton` has now more properties: `textTheme`, `hoverColor` and `hightlightColor`.
+
 ## [0.3.1] - Raised button fixes
 
 * Color property for raised buttons can now be set through the known "color" field directly.
 
 ### Deprecated
 
-* AdaptiveButton's `buttonColor` was deprecated since `color property` is used.
+* AdaptiveButton's `buttonColor` was deprecated since `color` property is used.
 
 ## [0.3.0] - Switch added
 
