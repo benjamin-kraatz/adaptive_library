@@ -39,7 +39,10 @@ class AdaptiveApp extends StatelessWidget {
     this.title,
     @required this.home,
     this.localizationsDelegates,
-    this.supportedLocales = const <Locale>[Locale('en', 'US')],
+    this.supportedLocales = const <Locale>[
+      Locale('de', 'DE'),
+      Locale('en', 'US')
+    ],
   })  : assert(home != null, 'AdaptiveApp: A home widget is required.'),
         super(key: key);
 
