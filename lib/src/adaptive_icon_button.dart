@@ -7,6 +7,7 @@ class AdaptiveIconButton extends StatelessWidget {
   final Widget iconCupertino;
   final VoidCallback onPressed;
   final String tooltip;
+  final Color color;
 
   AdaptiveIconButton({
     Key key,
@@ -14,6 +15,7 @@ class AdaptiveIconButton extends StatelessWidget {
     this.tooltip,
     this.iconCupertino,
     this.onPressed,
+    this.color,
   })  : assert(icon != null, 'We need an icon to see what is goung on.'),
         super(key: key);
 
@@ -26,11 +28,13 @@ class AdaptiveIconButton extends StatelessWidget {
             icon: icon,
             onPressed: onPressed,
             tooltip: tooltip,
+            color: color,
           )
         : CupertinoButton(
             child: iconCupertino ?? icon,
             onPressed: onPressed,
             padding: EdgeInsets.zero,
+            color: color,
           );
   }
 }
