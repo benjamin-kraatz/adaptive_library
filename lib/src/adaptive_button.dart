@@ -15,13 +15,18 @@ class AdaptiveButton extends StatelessWidget {
   /// Internally used.
   final bool _raised;
 
+  /// The button's color
+  final Color color;
+
   /// Recommended to use [ThemeData] in [AdaptiveApp] to set the button's color.
+  @deprecated
   final Color buttonColor;
 
   AdaptiveButton({
     @required this.child,
     this.onPressed,
     this.buttonColor = Colors.blue,
+    this.color = Colors.blue,
   })  : assert(child != null, 'Give me a child.'),
         _raised = false;
 
@@ -30,6 +35,7 @@ class AdaptiveButton extends StatelessWidget {
     @required this.child,
     this.onPressed,
     this.buttonColor = Colors.blue,
+    this.color = Colors.blue,
   })  : assert(child != null, 'Give me a child.'),
         _raised = true,
         super(key: key);
@@ -43,7 +49,7 @@ class AdaptiveButton extends StatelessWidget {
             ? RaisedButton(
                 child: child,
                 onPressed: onPressed,
-                color: buttonColor,
+                color: color,
               )
             : FlatButton(
                 child: child,
