@@ -1,3 +1,7 @@
+## [0.3.3] - Bug fixes
+
+* Do not use *0.3.2* cause it contains a critical issue. Recommended to update to this version
+
 ## [0.3.2] - Fields added to RaisedButton
 
 * `AdaptiveButton` has now more properties: `textTheme`, `hoverColor` and `hightlightColor`.

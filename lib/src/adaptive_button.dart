@@ -34,7 +34,6 @@ class AdaptiveButton extends StatelessWidget {
   AdaptiveButton({
     @required this.child,
     this.onPressed,
-    this.textTheme,
     this.hoverColor,
     this.highlightColor,
     this.buttonColor = Colors.blue,
