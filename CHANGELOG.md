@@ -1,3 +1,7 @@
+## [0.3.5] - More customization on Scaffold
+
+* fields `drawer`, `endDrawer`, `backgroundColor`, `floatingActionButton`, `floatingActionButtonLocation`, `floatingActionButtonAnimator` and `bottomNavigationBar` added.
+
 ## [0.3.4] - Icon button fixes
 
 * IconButton now contains `color` and `tooltip` fields
