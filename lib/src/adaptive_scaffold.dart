@@ -8,7 +8,14 @@ class AdaptiveScaffold extends StatefulWidget {
   final Widget body;
   final List<Widget> actions;
   final Widget appBar;
+  final Widget drawer;
+  final Widget endDrawer;
+  final Widget floatingActionButton;
+  final FloatingActionButtonLocation floatingActionButtonLocation;
+  final FloatingActionButtonAnimator floatingActionButtonAnimator;
   final CupertinoNavigationBar cupertinoNavigationBar;
+  final Widget bottomNavigationBar;
+  final Color backgroundColor;
 
   final bool largeCupertino;
 
@@ -18,7 +25,14 @@ class AdaptiveScaffold extends StatefulWidget {
       @required this.body,
       this.actions,
       this.appBar,
-      this.cupertinoNavigationBar})
+      this.cupertinoNavigationBar,
+      this.drawer,
+      this.endDrawer,
+      this.backgroundColor,
+      this.floatingActionButton,
+      this.floatingActionButtonLocation,
+      this.floatingActionButtonAnimator,
+      this.bottomNavigationBar})
       : largeCupertino = false;
 
   AdaptiveScaffold.large(
@@ -27,7 +41,14 @@ class AdaptiveScaffold extends StatefulWidget {
       @required this.body,
       this.actions,
       this.appBar,
-      this.cupertinoNavigationBar})
+      this.cupertinoNavigationBar,
+      this.drawer,
+      this.endDrawer,
+      this.floatingActionButton,
+      this.floatingActionButtonLocation,
+      this.floatingActionButtonAnimator,
+      this.bottomNavigationBar,
+      this.backgroundColor})
       : largeCupertino = true;
 
   @override
@@ -50,6 +71,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
                       actions: widget.actions,
                     ),
             body: widget.body,
+            bottomNavigationBar: widget.bottomNavigationBar,
           )
         : CupertinoPageScaffold(
             key: widget.scaffoldKey,
