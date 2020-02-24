@@ -6,9 +6,6 @@ import 'package:flutter/services.dart';
 import '../adaptive_library.dart';
 
 class AdaptiveTextField extends StatelessWidget {
-  /// This affects only Material's [CircularProgressIndicator]
-  final value;
-
   /// Controls the text being edited.
   ///
   /// If null, this widget will create its own [TextEditingController].
@@ -324,7 +321,6 @@ class AdaptiveTextField extends StatelessWidget {
 
   AdaptiveTextField(
       {Key key,
-      this.value,
       this.controller,
       this.focusNode,
       this.decoration,
@@ -373,7 +369,50 @@ class AdaptiveTextField extends StatelessWidget {
     AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
 
     return _inheritance.adaptiveState == AdaptiveState.Material
-        ? TextField()
+        ? TextField(
+            key: key,
+            controller: controller,
+            focusNode: focusNode,
+            decoration: decoration,
+            keyboardType: keyboardType,
+            textInputAction: textInputAction,
+            textCapitalization: textCapitalization,
+            style: style,
+            strutStyle: strutStyle,
+            textAlign: textAlign,
+            textAlignVertical: textAlignVertical,
+            textDirection: textDirection,
+            autofocus: autofocus,
+            obscureText: obscureText,
+            autocorrect: autocorrect,
+            smartDashesType: smartDashesType,
+            smartQuotesType: smartQuotesType,
+            enableSuggestions: enableSuggestions,
+            maxLines: maxLines,
+            minLines: minLines,
+            expands: expands,
+            readOnly: readOnly,
+            toolbarOptions: toolbarOptions,
+            showCursor: showCursor,
+            maxLength: maxLength,
+            maxLengthEnforced: maxLengthEnforced,
+            onChanged: onChanged,
+            onEditingComplete: onEditingComplete,
+            onSubmitted: onSubmitted,
+            inputFormatters: inputFormatters,
+            enabled: enabled,
+            cursorWidth: cursorWidth,
+            cursorColor: cursorColor,
+            cursorRadius: cursorRadius,
+            keyboardAppearance: keyboardAppearance,
+            scrollController: scrollController,
+            scrollPadding: scrollPadding,
+            scrollPhysics: scrollPhysics,
+            enableInteractiveSelection: enableInteractiveSelection,
+            onTap: onTap,
+            dragStartBehavior: dragStartBehavior,
+            buildCounter: buildCounter,
+          )
         : CupertinoActivityIndicator();
   }
 }
