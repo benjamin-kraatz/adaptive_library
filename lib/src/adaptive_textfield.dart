@@ -60,6 +60,8 @@ class AdaptiveTextField extends StatelessWidget {
   /// extra padding introduced by the decoration to save space for the labels).
   final InputDecoration decoration;
 
+  final BoxDecoration cupertinoDecoration;
+
   /// {@macro flutter.widgets.editableText.keyboardType}
   final TextInputType keyboardType;
 
@@ -361,7 +363,8 @@ class AdaptiveTextField extends StatelessWidget {
       this.onTap,
       this.buildCounter,
       this.scrollPhysics,
-      this.scrollController})
+      this.scrollController,
+      this.cupertinoDecoration})
       : super(key: key);
 
   @override
@@ -413,6 +416,46 @@ class AdaptiveTextField extends StatelessWidget {
             dragStartBehavior: dragStartBehavior,
             buildCounter: buildCounter,
           )
-        : CupertinoActivityIndicator();
+        : CupertinoTextField(
+            decoration: cupertinoDecoration,
+            maxLengthEnforced: maxLengthEnforced,
+            maxLength: maxLength,
+            maxLines: maxLines,
+            minLines: minLines,
+            textAlignVertical: textAlignVertical,
+            controller: controller,
+            focusNode: focusNode,
+            keyboardType: keyboardType,
+            textInputAction: textInputAction,
+            textCapitalization: textCapitalization,
+            style: style,
+            strutStyle: strutStyle,
+            textAlign: textAlign,
+            autofocus: autofocus,
+            obscureText: obscureText,
+            autocorrect: autocorrect,
+            smartDashesType: smartDashesType,
+            smartQuotesType: smartQuotesType,
+            enableSuggestions: enableSuggestions,
+            expands: expands,
+            readOnly: readOnly,
+            toolbarOptions: toolbarOptions,
+            showCursor: showCursor,
+            onChanged: onChanged,
+            onEditingComplete: onEditingComplete,
+            onSubmitted: onSubmitted,
+            inputFormatters: inputFormatters,
+            enabled: enabled,
+            cursorWidth: cursorWidth,
+            cursorColor: cursorColor,
+            cursorRadius: cursorRadius,
+            keyboardAppearance: keyboardAppearance,
+            scrollController: scrollController,
+            scrollPadding: scrollPadding,
+            scrollPhysics: scrollPhysics,
+            enableInteractiveSelection: enableInteractiveSelection,
+            onTap: onTap,
+            dragStartBehavior: dragStartBehavior,
+          );
   }
 }
