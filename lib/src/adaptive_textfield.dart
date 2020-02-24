@@ -5,6 +5,29 @@ import 'package:flutter/services.dart';
 
 import '../adaptive_library.dart';
 
+const BorderSide _kDefaultRoundedBorderSide = BorderSide(
+  color: CupertinoDynamicColor.withBrightness(
+    color: Color(0x33000000),
+    darkColor: Color(0x33FFFFFF),
+  ),
+  style: BorderStyle.solid,
+  width: 0.0,
+);
+const Border _kDefaultRoundedBorder = Border(
+  top: _kDefaultRoundedBorderSide,
+  bottom: _kDefaultRoundedBorderSide,
+  left: _kDefaultRoundedBorderSide,
+  right: _kDefaultRoundedBorderSide,
+);
+const BoxDecoration _kDefaultRoundedBorderDecoration = BoxDecoration(
+  color: CupertinoDynamicColor.withBrightness(
+    color: CupertinoColors.white,
+    darkColor: CupertinoColors.black,
+  ),
+  border: _kDefaultRoundedBorder,
+  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+);
+
 class AdaptiveTextField extends StatelessWidget {
   /// Controls the text being edited.
   ///
@@ -379,54 +402,57 @@ class AdaptiveTextField extends StatelessWidget {
       {Key key,
       this.controller,
       this.focusNode,
-      this.decoration,
+      this.decoration = const InputDecoration(),
       this.keyboardType,
       this.textInputAction,
-      this.textCapitalization,
+      this.textCapitalization = TextCapitalization.none,
       this.style,
       this.strutStyle,
-      this.textAlign,
+      this.textAlign = TextAlign.start,
       this.textAlignVertical,
       this.textDirection,
-      this.autofocus,
-      this.obscureText,
-      this.autocorrect,
+      this.showCursor,
+      this.autofocus = false,
+      this.obscureText = false,
+      this.autocorrect = true,
       this.smartDashesType,
       this.smartQuotesType,
-      this.enableSuggestions,
+      this.enableSuggestions = true,
       this.maxLines,
       this.minLines,
-      this.expands,
-      this.readOnly,
+      this.expands = false,
+      this.readOnly = false,
       this.toolbarOptions,
-      this.showCursor,
       this.maxLength,
-      this.maxLengthEnforced,
       this.onChanged,
       this.onEditingComplete,
       this.onSubmitted,
       this.inputFormatters,
+      this.maxLengthEnforced = true,
       this.enabled,
-      this.cursorWidth,
-      this.cursorRadius,
+      this.cursorWidth = 2.0,
+      this.cursorRadius = const Radius.circular(2.0),
       this.cursorColor,
       this.keyboardAppearance,
-      this.scrollPadding,
-      this.enableInteractiveSelection,
-      this.dragStartBehavior,
+      this.scrollPadding = const EdgeInsets.all(20.0),
+      this.dragStartBehavior = DragStartBehavior.start,
+      this.enableInteractiveSelection = true,
       this.onTap,
       this.buildCounter,
       this.scrollPhysics,
       this.scrollController,
-      this.cupertinoDecoration,
-      this.padding,
+      this.cupertinoDecoration = _kDefaultRoundedBorderDecoration,
+      this.padding = const EdgeInsets.all(6.0),
       this.placeholder,
-      this.placeholderStyle,
+      this.placeholderStyle = const TextStyle(
+        fontWeight: FontWeight.w400,
+        color: CupertinoColors.placeholderText,
+      ),
       this.prefix,
-      this.prefixMode,
+      this.prefixMode = OverlayVisibilityMode.always,
       this.suffix,
-      this.suffixMode,
-      this.clearButtonMode})
+      this.suffixMode = OverlayVisibilityMode.always,
+      this.clearButtonMode = OverlayVisibilityMode.never})
       : super(key: key);
 
   @override
