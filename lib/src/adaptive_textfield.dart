@@ -11,6 +11,60 @@ class AdaptiveTextField extends StatelessWidget {
   /// If null, this widget will create its own [TextEditingController].
   final TextEditingController controller;
 
+  final EdgeInsetsGeometry padding;
+
+  /// A lighter colored placeholder hint that appears on the first line of the
+  /// text field when the text entry is empty.
+  ///
+  /// Defaults to having no placeholder text.
+  ///
+  /// The text style of the placeholder text matches that of the text field's
+  /// main text entry except a lighter font weight and a grey font color.
+  final String placeholder;
+
+  /// The style to use for the placeholder text.
+  ///
+  /// The [placeholderStyle] is merged with the [style] [TextStyle] when applied
+  /// to the [placeholder] text. To avoid merging with [style], specify
+  /// [TextStyle.inherit] as false.
+  ///
+  /// Defaults to the [style] property with w300 font weight and grey color.
+  ///
+  /// If specifically set to null, placeholder's style will be the same as [style].
+  final TextStyle placeholderStyle;
+
+  /// An optional [Widget] to display before the text.
+  final Widget prefix;
+
+  /// Controls the visibility of the [prefix] widget based on the state of
+  /// text entry when the [prefix] argument is not null.
+  ///
+  /// Defaults to [OverlayVisibilityMode.always] and cannot be null.
+  ///
+  /// Has no effect when [prefix] is null.
+  final OverlayVisibilityMode prefixMode;
+
+  /// An optional [Widget] to display after the text.
+  final Widget suffix;
+
+  /// Controls the visibility of the [suffix] widget based on the state of
+  /// text entry when the [suffix] argument is not null.
+  ///
+  /// Defaults to [OverlayVisibilityMode.always] and cannot be null.
+  ///
+  /// Has no effect when [suffix] is null.
+  final OverlayVisibilityMode suffixMode;
+
+  /// Show an iOS-style clear button to clear the current text entry.
+  ///
+  /// Can be made to appear depending on various text states of the
+  /// [TextEditingController].
+  ///
+  /// Will only appear if no [suffix] widget is appearing.
+  ///
+  /// Defaults to never appearing and cannot be null.
+  final OverlayVisibilityMode clearButtonMode;
+
   /// Defines the keyboard focus for this widget.
   ///
   /// The [focusNode] is a long-lived object that's typically managed by a
@@ -364,7 +418,15 @@ class AdaptiveTextField extends StatelessWidget {
       this.buildCounter,
       this.scrollPhysics,
       this.scrollController,
-      this.cupertinoDecoration})
+      this.cupertinoDecoration,
+      this.padding,
+      this.placeholder,
+      this.placeholderStyle,
+      this.prefix,
+      this.prefixMode,
+      this.suffix,
+      this.suffixMode,
+      this.clearButtonMode})
       : super(key: key);
 
   @override
@@ -456,6 +518,12 @@ class AdaptiveTextField extends StatelessWidget {
             enableInteractiveSelection: enableInteractiveSelection,
             onTap: onTap,
             dragStartBehavior: dragStartBehavior,
+            prefix: prefix,
+            prefixMode: prefixMode,
+            suffix: suffix,
+            suffixMode: suffixMode,
+            placeholder: placeholder,
+            placeholderStyle: placeholderStyle,
           );
   }
 }
