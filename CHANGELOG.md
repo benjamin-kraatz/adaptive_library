@@ -1,3 +1,7 @@
+## [0.3.7] - AdaptiveTextField fixed
+
+* Default values added like in the original widget
+
 ## [0.3.6] - AdaptiveTextField added
 
 * `TextField` and `CupertinoTextField` with almost full control
