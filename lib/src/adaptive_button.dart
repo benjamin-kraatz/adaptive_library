@@ -31,26 +31,293 @@ class AdaptiveButton extends StatelessWidget {
   @deprecated
   final Color buttonColor;
 
+  /// The callback that is called when the button is long-pressed.
+  ///
+  /// If this callback and [onPressed] are null, then the button will be disabled.
+  ///
+  /// See also:
+  ///
+  ///  * [enabled], which is true if the button is enabled.
+  final VoidCallback onLongPress;
+
+  /// Called by the underlying [InkWell] widget's [InkWell.onHighlightChanged]
+  /// callback.
+  ///
+  /// If [onPressed] changes from null to non-null while a gesture is ongoing,
+  /// this can fire during the build phase (in which case calling
+  /// [State.setState] is not allowed).
+  final ValueChanged<bool> onHighlightChanged;
+
+  /// The color to use for this button's text.
+  ///
+  /// The button's [Material.textStyle] will be the current theme's button
+  /// text style, [ThemeData.textTheme.button], configured with this color.
+  ///
+  /// The default text color depends on the button theme's text theme,
+  /// [ButtonThemeData.textTheme].
+  ///
+  /// If [textColor] is a [MaterialStateProperty<Color>], [disabledTextColor]
+  /// will be ignored.
+  ///
+  /// See also:
+  ///
+  ///  * [disabledTextColor], the text color to use when the button has been
+  ///    disabled.
+  final Color textColor;
+
+  /// The color to use for this button's text when the button is disabled.
+  ///
+  /// The button's [Material.textStyle] will be the current theme's button
+  /// text style, [ThemeData.textTheme.button], configured with this color.
+  ///
+  /// The default value is the theme's disabled color,
+  /// [ThemeData.disabledColor].
+  ///
+  /// If [textColor] is a [MaterialStateProperty<Color>], [disabledTextColor]
+  /// will be ignored.
+  ///
+  /// See also:
+  ///
+  ///  * [textColor] - The color to use for this button's text when the button is [enabled].
+  final Color disabledTextColor;
+
+  /// The fill color of the button when the button is disabled.
+  ///
+  /// The default value of this color is the theme's disabled color,
+  /// [ThemeData.disabledColor].
+  ///
+  /// See also:
+  ///
+  ///  * [color] - the fill color of the button when the button is [enabled].
+  final Color disabledColor;
+
+  /// The splash color of the button's [InkWell].
+  ///
+  /// The ink splash indicates that the button has been touched. It
+  /// appears on top of the button's child and spreads in an expanding
+  /// circle beginning where the touch occurred.
+  ///
+  /// The default splash color is the current theme's splash color,
+  /// [ThemeData.splashColor].
+  ///
+  /// The appearance of the splash can be configured with the theme's splash
+  /// factory, [ThemeData.splashFactory].
+  final Color splashColor;
+
+  /// The fill color of the button's [Material] when it has the input focus.
+  ///
+  /// The button changed focus color when the button has the input focus. It
+  /// appears behind the button's child.
+  final Color focusColor;
+
+  /// The z-coordinate at which to place this button relative to its parent.
+  ///
+  /// This controls the size of the shadow below the raised button.
+  ///
+  /// Defaults to 2, the appropriate elevation for raised buttons. The value
+  /// is always non-negative.
+  ///
+  /// See also:
+  ///
+  ///  * [FlatButton], a button with no elevation or fill color.
+  ///  * [focusElevation], the elevation when the button is focused.
+  ///  * [hoverElevation], the elevation when a pointer is hovering over the
+  ///    button.
+  ///  * [disabledElevation], the elevation when the button is disabled.
+  ///  * [highlightElevation], the elevation when the button is pressed.
+  final double elevation;
+
+  /// The elevation for the button's [Material] when the button
+  /// is [enabled] and a pointer is hovering over it.
+  ///
+  /// Defaults to 4.0. The value is always non-negative.
+  ///
+  /// See also:
+  ///
+  ///  * [elevation], the default elevation.
+  ///  * [focusElevation], the elevation when the button is focused.
+  ///  * [disabledElevation], the elevation when the button is disabled.
+  ///  * [highlightElevation], the elevation when the button is pressed.
+  final double hoverElevation;
+
+  /// The elevation for the button's [Material] when the button
+  /// is [enabled] and has the input focus.
+  ///
+  /// Defaults to 4.0. The value is always non-negative.
+  ///
+  /// See also:
+  ///
+  ///  * [elevation], the default elevation.
+  ///  * [hoverElevation], the elevation when a pointer is hovering over the
+  ///    button.
+  ///  * [disabledElevation], the elevation when the button is disabled.
+  ///  * [highlightElevation], the elevation when the button is pressed.
+  final double focusElevation;
+
+  /// The elevation for the button's [Material] relative to its parent when the
+  /// button is [enabled] and pressed.
+  ///
+  /// This controls the size of the shadow below the button. When a tap
+  /// down gesture occurs within the button, its [InkWell] displays a
+  /// [highlightColor] "highlight".
+  ///
+  /// Defaults to 8.0. The value is always non-negative.
+  ///
+  /// See also:
+  ///
+  ///  * [elevation], the default elevation.
+  ///  * [focusElevation], the elevation when the button is focused.
+  ///  * [hoverElevation], the elevation when a pointer is hovering over the
+  ///    button.
+  ///  * [disabledElevation], the elevation when the button is disabled.
+  final double highlightElevation;
+
+  /// The elevation for the button's [Material] relative to its parent when the
+  /// button is not [enabled].
+  ///
+  /// Defaults to 0.0. The value is always non-negative.
+  ///
+  /// See also:
+  ///
+  ///  * [elevation], the default elevation.
+  ///  * [highlightElevation], the elevation when the button is pressed.
+  final double disabledElevation;
+
+  /// The theme brightness to use for this button.
+  ///
+  /// Defaults to the theme's brightness in [ThemeData.brightness]. Setting
+  /// this value determines the button text's colors based on
+  /// [ButtonThemeData.getTextColor].
+  ///
+  /// See also:
+  ///
+  ///  * [ButtonTextTheme], uses [Brightness] to determine text color.
+  final Brightness colorBrightness;
+
+  /// Whether the button is enabled or disabled.
+  ///
+  /// Buttons are disabled by default. To enable a button, set its [onPressed]
+  /// or [onLongPress] properties to a non-null value.
+  bool get enabled => onPressed != null || onLongPress != null;
+
+  /// The internal padding for the button's [child].
+  ///
+  /// Defaults to the value from the current [ButtonTheme],
+  /// [ButtonThemeData.padding].
+  final EdgeInsetsGeometry padding;
+
+  /// Defines how compact the button's layout will be.
+  ///
+  /// {@macro flutter.material.themedata.visualDensity}
+  ///
+  /// See also:
+  ///
+  ///  * [ThemeData.visualDensity], which specifies the [density] for all widgets
+  ///    within a [Theme].
+  final VisualDensity visualDensity;
+
+  /// The shape of the button's [Material].
+  ///
+  /// The button's highlight and splash are clipped to this shape. If the
+  /// button has an elevation, then its drop shadow is defined by this
+  /// shape as well.
+  ///
+  /// Defaults to the value from the current [ButtonTheme],
+  /// [ButtonThemeData.shape].
+  final ShapeBorder shape;
+
+  /// {@macro flutter.widgets.Clip}
+  ///
+  /// Defaults to [Clip.none], and must not be null.
+  final Clip clipBehavior;
+
+  /// {@macro flutter.widgets.Focus.focusNode}
+  final FocusNode focusNode;
+
+  /// {@macro flutter.widgets.Focus.autofocus}
+  final bool autofocus;
+
+  /// Defines the duration of animated changes for [shape] and [elevation].
+  ///
+  /// The default value is [kThemeChangeDuration].
+  final Duration animationDuration;
+
+  /// Configures the minimum size of the tap target.
+  ///
+  /// Defaults to [ThemeData.materialTapTargetSize].
+  ///
+  /// See also:
+  ///
+  ///  * [MaterialTapTargetSize], for a description of how this affects tap targets.
+  final MaterialTapTargetSize materialTapTargetSize;
+
+  /// ONLY USED ON CUPERTINO
+  final BorderRadius borderRadius;
+
   AdaptiveButton({
     @required this.child,
-    this.onPressed,
+    this.onLongPress,
+    this.onHighlightChanged,
+    this.focusColor,
     this.hoverColor,
     this.highlightColor,
-    this.buttonColor = Colors.blue,
-    this.color = Colors.blue,
+    this.splashColor,
+    this.elevation = 2.0,
+    this.focusElevation = 4.0,
+    this.hoverElevation = 4.0,
+    this.highlightElevation = 8.0,
+    this.disabledElevation = 0.0,
+    this.padding = EdgeInsets.zero,
+    this.visualDensity = const VisualDensity(),
+    this.shape = const RoundedRectangleBorder(),
+    this.animationDuration = kThemeChangeDuration,
+    this.clipBehavior = Clip.none,
+    this.focusNode,
+    this.autofocus = false,
+    this.materialTapTargetSize,
+    this.onPressed,
+    this.color,
     this.textTheme,
+    this.buttonColor,
+    this.textColor,
+    this.disabledTextColor,
+    this.disabledColor,
+    this.colorBrightness,
   })  : assert(child != null, 'Give me a child.'),
-        _raised = false;
+        _raised = false,
+        borderRadius = null;
 
   AdaptiveButton.raised({
     Key key,
     @required this.child,
-    this.onPressed,
-    this.textTheme,
+    this.onLongPress,
+    this.onHighlightChanged,
+    this.focusColor,
     this.hoverColor,
     this.highlightColor,
-    this.buttonColor = Colors.blue,
-    this.color = Colors.blue,
+    this.splashColor,
+    this.elevation = 2.0,
+    this.focusElevation = 4.0,
+    this.hoverElevation = 4.0,
+    this.highlightElevation = 8.0,
+    this.disabledElevation = 0.0,
+    this.padding = EdgeInsets.zero,
+    this.visualDensity = const VisualDensity(),
+    this.shape = const RoundedRectangleBorder(),
+    this.animationDuration = kThemeChangeDuration,
+    this.clipBehavior = Clip.none,
+    this.focusNode,
+    this.autofocus = false,
+    this.materialTapTargetSize,
+    this.onPressed,
+    this.color,
+    this.textTheme,
+    this.buttonColor,
+    this.textColor,
+    this.disabledTextColor,
+    this.disabledColor,
+    this.colorBrightness,
+    this.borderRadius,
   })  : assert(child != null, 'Give me a child.'),
         _raised = true,
         super(key: key);
@@ -68,6 +335,28 @@ class AdaptiveButton extends StatelessWidget {
                 textTheme: textTheme,
                 hoverColor: hoverColor,
                 highlightColor: highlightColor,
+                animationDuration: animationDuration,
+                textColor: textColor,
+                autofocus: autofocus,
+                disabledColor: disabledColor,
+                shape: shape,
+                splashColor: splashColor,
+                materialTapTargetSize: materialTapTargetSize,
+                colorBrightness: colorBrightness,
+                disabledElevation: disabledElevation,
+                disabledTextColor: disabledTextColor,
+                visualDensity: visualDensity,
+                clipBehavior: clipBehavior,
+                onHighlightChanged: onHighlightChanged,
+                onLongPress: onLongPress,
+                elevation: elevation,
+                focusElevation: focusElevation,
+                focusNode: focusNode,
+                focusColor: focusColor,
+                padding: padding,
+                highlightElevation: highlightElevation,
+                key: key,
+                hoverElevation: hoverElevation,
               )
             : FlatButton(
                 child: child,
@@ -75,15 +364,38 @@ class AdaptiveButton extends StatelessWidget {
                 textTheme: textTheme,
                 hoverColor: hoverColor,
                 highlightColor: highlightColor,
+                textColor: textColor,
+                autofocus: autofocus,
+                disabledColor: disabledColor,
+                shape: shape,
+                splashColor: splashColor,
+                materialTapTargetSize: materialTapTargetSize,
+                colorBrightness: colorBrightness,
+                disabledTextColor: disabledTextColor,
+                visualDensity: visualDensity,
+                clipBehavior: clipBehavior,
+                onHighlightChanged: onHighlightChanged,
+                onLongPress: onLongPress,
+                focusNode: focusNode,
+                focusColor: focusColor,
+                padding: padding,
+                key: key,
               )
         : _raised
             ? CupertinoButton.filled(
                 child: child,
                 onPressed: onPressed,
+                disabledColor: disabledColor,
+                padding: padding,
+                key: key,
+                borderRadius: borderRadius,
               )
             : CupertinoButton(
                 child: child,
                 onPressed: onPressed,
+                disabledColor: disabledColor,
+                padding: padding,
+                key: key,
               );
   }
 }
