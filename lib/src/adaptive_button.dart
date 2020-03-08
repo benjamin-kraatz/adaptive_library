@@ -14,6 +14,7 @@ class AdaptiveButton extends StatelessWidget {
 
   /// Internally used.
   final bool _raised;
+  final bool _icon;
 
   /// The button's color
   final Color color;
@@ -254,6 +255,12 @@ class AdaptiveButton extends StatelessWidget {
   /// ONLY USED ON CUPERTINO
   final BorderRadius borderRadius;
 
+  /// Used when having an icon button, currently not implemented for Cupertino.
+  final Widget icon;
+
+  /// Used when having an icon button, currently not implemented for Cupertino.
+  final Widget label;
+
   AdaptiveButton({
     @required this.child,
     this.onLongPress,
@@ -283,8 +290,11 @@ class AdaptiveButton extends StatelessWidget {
     this.disabledTextColor,
     this.disabledColor,
     this.colorBrightness,
+    this.icon,
+    this.label,
   })  : assert(child != null, 'Give me a child.'),
         _raised = false,
+        _icon = false,
         borderRadius = null;
 
   AdaptiveButton.raised({
@@ -318,8 +328,49 @@ class AdaptiveButton extends StatelessWidget {
     this.disabledColor,
     this.colorBrightness,
     this.borderRadius,
+    this.icon,
+    this.label,
   })  : assert(child != null, 'Give me a child.'),
         _raised = true,
+        _icon = false,
+        super(key: key);
+
+  AdaptiveButton.icon({
+    Key key,
+    @required this.child,
+    this.onLongPress,
+    this.onHighlightChanged,
+    this.focusColor,
+    this.hoverColor,
+    this.highlightColor,
+    this.splashColor,
+    this.elevation = 2.0,
+    this.focusElevation = 4.0,
+    this.hoverElevation = 4.0,
+    this.highlightElevation = 8.0,
+    this.disabledElevation = 0.0,
+    this.padding = EdgeInsets.zero,
+    this.visualDensity = const VisualDensity(),
+    this.shape = const RoundedRectangleBorder(),
+    this.animationDuration = kThemeChangeDuration,
+    this.clipBehavior = Clip.none,
+    this.focusNode,
+    this.autofocus = false,
+    this.materialTapTargetSize,
+    this.onPressed,
+    this.color,
+    this.textTheme,
+    this.buttonColor,
+    this.textColor,
+    this.disabledTextColor,
+    this.disabledColor,
+    this.colorBrightness,
+    this.borderRadius,
+    this.icon,
+    this.label,
+  })  : assert(child != null, 'Give me a child.'),
+        _raised = true,
+        _icon = true,
         super(key: key);
 
   @override
@@ -328,59 +379,111 @@ class AdaptiveButton extends StatelessWidget {
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? _raised
-            ? RaisedButton(
-                child: child,
-                onPressed: onPressed,
-                color: color,
-                textTheme: textTheme,
-                hoverColor: hoverColor,
-                highlightColor: highlightColor,
-                animationDuration: animationDuration,
-                textColor: textColor,
-                autofocus: autofocus,
-                disabledColor: disabledColor,
-                shape: shape,
-                splashColor: splashColor,
-                materialTapTargetSize: materialTapTargetSize,
-                colorBrightness: colorBrightness,
-                disabledElevation: disabledElevation,
-                disabledTextColor: disabledTextColor,
-                visualDensity: visualDensity,
-                clipBehavior: clipBehavior,
-                onHighlightChanged: onHighlightChanged,
-                onLongPress: onLongPress,
-                elevation: elevation,
-                focusElevation: focusElevation,
-                focusNode: focusNode,
-                focusColor: focusColor,
-                padding: padding,
-                highlightElevation: highlightElevation,
-                key: key,
-                hoverElevation: hoverElevation,
-              )
-            : FlatButton(
-                child: child,
-                onPressed: onPressed,
-                textTheme: textTheme,
-                hoverColor: hoverColor,
-                highlightColor: highlightColor,
-                textColor: textColor,
-                autofocus: autofocus,
-                disabledColor: disabledColor,
-                shape: shape,
-                splashColor: splashColor,
-                materialTapTargetSize: materialTapTargetSize,
-                colorBrightness: colorBrightness,
-                disabledTextColor: disabledTextColor,
-                visualDensity: visualDensity,
-                clipBehavior: clipBehavior,
-                onHighlightChanged: onHighlightChanged,
-                onLongPress: onLongPress,
-                focusNode: focusNode,
-                focusColor: focusColor,
-                padding: padding,
-                key: key,
-              )
+            ? _icon
+                ? RaisedButton.icon(
+                    onPressed: onPressed,
+                    icon: icon,
+                    label: label,
+                    color: color,
+                    textTheme: textTheme,
+                    hoverColor: hoverColor,
+                    highlightColor: highlightColor,
+                    animationDuration: animationDuration,
+                    textColor: textColor,
+                    autofocus: autofocus,
+                    disabledColor: disabledColor,
+                    shape: shape,
+                    splashColor: splashColor,
+                    materialTapTargetSize: materialTapTargetSize,
+                    colorBrightness: colorBrightness,
+                    disabledElevation: disabledElevation,
+                    disabledTextColor: disabledTextColor,
+                    clipBehavior: clipBehavior,
+                    onHighlightChanged: onHighlightChanged,
+                    onLongPress: onLongPress,
+                    elevation: elevation,
+                    focusNode: focusNode,
+                    focusColor: focusColor,
+                    highlightElevation: highlightElevation,
+                    key: key,
+                  )
+                : RaisedButton(
+                    child: child,
+                    onPressed: onPressed,
+                    color: color,
+                    textTheme: textTheme,
+                    hoverColor: hoverColor,
+                    highlightColor: highlightColor,
+                    animationDuration: animationDuration,
+                    textColor: textColor,
+                    autofocus: autofocus,
+                    disabledColor: disabledColor,
+                    shape: shape,
+                    splashColor: splashColor,
+                    materialTapTargetSize: materialTapTargetSize,
+                    colorBrightness: colorBrightness,
+                    disabledElevation: disabledElevation,
+                    disabledTextColor: disabledTextColor,
+                    visualDensity: visualDensity,
+                    clipBehavior: clipBehavior,
+                    onHighlightChanged: onHighlightChanged,
+                    onLongPress: onLongPress,
+                    elevation: elevation,
+                    focusElevation: focusElevation,
+                    focusNode: focusNode,
+                    focusColor: focusColor,
+                    padding: padding,
+                    highlightElevation: highlightElevation,
+                    key: key,
+                    hoverElevation: hoverElevation,
+                  )
+            : _icon
+                ? FlatButton.icon(
+                    onPressed: onPressed,
+                    icon: icon,
+                    label: label,
+                    color: color,
+                    textTheme: textTheme,
+                    hoverColor: hoverColor,
+                    highlightColor: highlightColor,
+                    textColor: textColor,
+                    autofocus: autofocus,
+                    disabledColor: disabledColor,
+                    shape: shape,
+                    splashColor: splashColor,
+                    materialTapTargetSize: materialTapTargetSize,
+                    colorBrightness: colorBrightness,
+                    disabledTextColor: disabledTextColor,
+                    clipBehavior: clipBehavior,
+                    onHighlightChanged: onHighlightChanged,
+                    onLongPress: onLongPress,
+                    focusNode: focusNode,
+                    focusColor: focusColor,
+                    key: key,
+                  )
+                : FlatButton(
+                    child: child,
+                    onPressed: onPressed,
+                    textTheme: textTheme,
+                    hoverColor: hoverColor,
+                    highlightColor: highlightColor,
+                    textColor: textColor,
+                    autofocus: autofocus,
+                    disabledColor: disabledColor,
+                    shape: shape,
+                    splashColor: splashColor,
+                    materialTapTargetSize: materialTapTargetSize,
+                    colorBrightness: colorBrightness,
+                    disabledTextColor: disabledTextColor,
+                    visualDensity: visualDensity,
+                    clipBehavior: clipBehavior,
+                    onHighlightChanged: onHighlightChanged,
+                    onLongPress: onLongPress,
+                    focusNode: focusNode,
+                    focusColor: focusColor,
+                    padding: padding,
+                    key: key,
+                  )
         : _raised
             ? CupertinoButton.filled(
                 child: child,

@@ -1,3 +1,7 @@
+## [0.4.0]
+
+* `AdaptiveButton.icon` added
+
 ## [0.3.8]
 
 * More customization on `AdaptiveButton`
