@@ -18,6 +18,8 @@ class AdaptiveApp extends StatelessWidget {
   /// To specify theme data for a Material app, use this field.
   final ThemeData materialTheme;
 
+  final ThemeData materialDarkTheme;
+
   /// To specify theme data for a Cupertino app, use this field.
   final CupertinoThemeData cupertinoTheme;
 
@@ -31,6 +33,31 @@ class AdaptiveApp extends StatelessWidget {
   /// By default only the American English locale is supported. Apps should configure this list to match the locales they support.
   final Iterable<Locale> supportedLocales;
 
+  /// The application's top-level routing table.
+  ///
+  /// When a named route is pushed with [Navigator.pushNamed], the route name is
+  /// looked up in this map. If the name is present, the associated
+  /// [WidgetBuilder] is used to construct a [MaterialPageRoute] that performs
+  /// an appropriate transition, including [Hero] animations, to the new route.
+  ///
+  /// {@macro flutter.widgets.widgetsApp.routes}
+  final Map<String, WidgetBuilder> routes;
+
+  /// {@macro flutter.widgets.widgetsApp.initialRoute}
+  final String initialRoute;
+
+  /// {@macro flutter.widgets.widgetsApp.onGenerateRoute}
+  final RouteFactory onGenerateRoute;
+
+  /// {@macro flutter.widgets.widgetsApp.onGenerateInitialRoutes}
+  final InitialRouteListFactory onGenerateInitialRoutes;
+
+  /// {@macro flutter.widgets.widgetsApp.onUnknownRoute}
+  final RouteFactory onUnknownRoute;
+
+  /// {@macro flutter.widgets.widgetsApp.navigatorObservers}
+  final List<NavigatorObserver> navigatorObservers;
+
   AdaptiveApp({
     Key key,
     this.materialTheme,
@@ -41,8 +68,15 @@ class AdaptiveApp extends StatelessWidget {
     this.localizationsDelegates,
     this.supportedLocales = const <Locale>[
       Locale('de', 'DE'),
-      Locale('en', 'US')
+      Locale('en', 'US'),
     ],
+    this.routes = const <String, WidgetBuilder>{},
+    this.initialRoute,
+    this.onGenerateRoute,
+    this.onGenerateInitialRoutes,
+    this.onUnknownRoute,
+    this.navigatorObservers = const <NavigatorObserver>[],
+    this.materialDarkTheme,
   })  : assert(home != null, 'AdaptiveApp: A home widget is required.'),
         super(key: key);
 
@@ -57,6 +91,13 @@ class AdaptiveApp extends StatelessWidget {
             home: home,
             localizationsDelegates: localizationsDelegates,
             supportedLocales: supportedLocales,
+            navigatorObservers: navigatorObservers,
+            darkTheme: materialDarkTheme,
+            initialRoute: initialRoute,
+            routes: routes,
+            onGenerateInitialRoutes: onGenerateInitialRoutes,
+            onGenerateRoute: onGenerateRoute,
+            onUnknownRoute: onUnknownRoute,
           )
         : CupertinoApp(
             theme: cupertinoTheme,
@@ -64,6 +105,12 @@ class AdaptiveApp extends StatelessWidget {
             home: home,
             localizationsDelegates: localizationsDelegates,
             supportedLocales: supportedLocales,
+            navigatorObservers: navigatorObservers,
+            routes: routes,
+            initialRoute: initialRoute,
+            onGenerateRoute: onGenerateRoute,
+            onGenerateInitialRoutes: onGenerateInitialRoutes,
+            onUnknownRoute: onUnknownRoute,
           );
   }
 }
