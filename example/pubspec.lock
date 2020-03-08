@@ -169,7 +169,11 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "0.2.15"
+=======
+    version: "0.2.14"
+>>>>>>> 764c6c620d4e0562d859ffe5d59f2ec7850ab410
   typed_data:
     dependency: transitive
     description:

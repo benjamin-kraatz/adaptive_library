@@ -1,3 +1,11 @@
+## [0.3.7] - AdaptiveTextField fixed
+
+* Default values added like in the original widget
+
+## [0.3.6] - AdaptiveTextField added
+
+* `TextField` and `CupertinoTextField` with almost full control
+
 ## [0.3.5] - More customization on Scaffold
 
 * fields `drawer`, `endDrawer`, `backgroundColor`, `floatingActionButton`, `floatingActionButtonLocation`, `floatingActionButtonAnimator` and `bottomNavigationBar` added.
