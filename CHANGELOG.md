@@ -1,3 +1,7 @@
+## [0.3.8]
+
+* A set of fields added to Adaptive app to customize it in a more flexible way
+
 ## [0.3.7] - AdaptiveTextField fixed
 
 * Default values added like in the original widget
