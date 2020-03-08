@@ -1,5 +1,9 @@
 ## [0.3.8]
 
+* More customization on `AdaptiveButton`
+
+## [0.3.8]
+
 * A set of fields added to Adaptive app to customize it in a more flexible way
 
 ## [0.3.7] - AdaptiveTextField fixed
