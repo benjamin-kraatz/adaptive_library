@@ -1,3 +1,7 @@
+## [0.4.1]
+
+* AdaptiveButton property default value fixes
+
 ## [0.4.0]
 
 * `AdaptiveButton.icon` added
