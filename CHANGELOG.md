@@ -1,3 +1,7 @@
+## [0.4.3]
+
+* Fixed borderRadius and padding for Cupertino styled AdaptiveButton
+
 ## [0.4.2]
 
 * Fixed `disabledColor != null` assertion issue on AdaptiveButton on Cupertino style

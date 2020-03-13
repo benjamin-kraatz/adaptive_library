@@ -470,16 +470,19 @@ class AdaptiveButton extends StatelessWidget {
                 onPressed: onPressed,
                 disabledColor:
                     disabledColor ?? CupertinoColors.quaternarySystemFill,
-                padding: padding,
+                padding: padding ?? const EdgeInsets.all(16.0),
                 key: key,
-                borderRadius: borderRadius,
+                borderRadius: borderRadius ??
+                    const BorderRadius.all(Radius.circular(8.0)),
               )
             : CupertinoButton(
                 child: child,
                 onPressed: onPressed,
                 disabledColor:
                     disabledColor ?? CupertinoColors.quaternarySystemFill,
-                padding: padding,
+                padding: padding ?? const EdgeInsets.all(16.0),
+                borderRadius: borderRadius ??
+                    const BorderRadius.all(Radius.circular(8.0)),
                 key: key,
               );
   }
