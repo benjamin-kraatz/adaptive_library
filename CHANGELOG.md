@@ -1,3 +1,7 @@
+## [0.4.2]
+
+* Fixed `disabledColor != null` assertion issue on AdaptiveButton on Cupertino style
+
 ## [0.4.1]
 
 * AdaptiveButton property default value fixes
