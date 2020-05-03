@@ -1,3 +1,8 @@
+## [0.5.0]
+
+* Removed deprecated/non-existing types and fields `VisualDensity`, `SmartQuotesType`, `onGenerateInitialRoutes`.
+These fields are removed from the Flutter framework and no longer be used in this package. Remove it from your code.
+
 ## [0.4.3]
 
 * Fixed borderRadius and padding for Cupertino styled AdaptiveButton

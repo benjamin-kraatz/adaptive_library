@@ -1,6 +1,6 @@
 name: adaptive_library
 description: A set of Widgets that create a native look and feel on iOS and Android.
-version: 0.4.3
+version: 0.5.0
 homepage: https://github.com/beagle-barks/adaptive_library
 
 environment:
