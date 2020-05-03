@@ -1,3 +1,7 @@
+## [0.5.1]
+
+* More documentation on AdaptiveApp on how to use it properly.
+
 ## [0.5.0]
 
 * Removed deprecated/non-existing types and fields `VisualDensity`, `SmartQuotesType`, `onGenerateInitialRoutes`.

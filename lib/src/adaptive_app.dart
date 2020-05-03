@@ -5,6 +5,21 @@ import 'package:flutter/cupertino.dart';
 /// Use this class as your app.
 /// Some parameters are going to be added.
 /// Make sure to wrap this widget inside [AdaptiveInheritance] directly.
+///
+/// ```dart
+/// AdaptiveInheritance(
+///      adaptiveState: AdaptiveInheritance.getStateByPlatform(), //this is used to automatically get the platform the app is running on
+///      child: AdaptiveApp(
+///        materialTheme: ThemeData(
+///            accentColor: Colors.red,
+///            buttonTheme: ButtonThemeData(
+///              buttonColor: Colors.red,
+///            )),
+///        home: HomeScreenPage(),
+///      ),
+///    );
+///
+/// ```
 class AdaptiveApp extends StatelessWidget {
   /// Your app's title.
   final String title;
