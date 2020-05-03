@@ -23,8 +23,7 @@ class AdaptiveInheritance extends InheritedWidget {
   final AdaptiveState adaptiveState;
 
   static AdaptiveInheritance of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(AdaptiveInheritance)
-        as AdaptiveInheritance;
+    return context.dependOnInheritedWidgetOfExactType() as AdaptiveInheritance;
   }
 
   @override

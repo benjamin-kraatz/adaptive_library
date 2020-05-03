@@ -1,3 +1,7 @@
+## [0.5.2]
+
+* Replaced deprecated `inheritFromWidgetOfExactType` with `dependOnInheritedWidgetOfExactType`
+
 ## [0.5.1]
 
 * More documentation on AdaptiveApp on how to use it properly.
