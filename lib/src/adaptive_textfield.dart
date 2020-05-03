@@ -179,12 +179,6 @@ class AdaptiveTextField extends StatelessWidget {
   /// {@macro flutter.widgets.editableText.autocorrect}
   final bool autocorrect;
 
-  /// {@macro flutter.services.textInput.smartDashesType}
-  final SmartDashesType smartDashesType;
-
-  /// {@macro flutter.services.textInput.smartQuotesType}
-  final SmartQuotesType smartQuotesType;
-
   /// {@macro flutter.services.textInput.enableSuggestions}
   final bool enableSuggestions;
 
@@ -415,8 +409,6 @@ class AdaptiveTextField extends StatelessWidget {
       this.autofocus = false,
       this.obscureText = false,
       this.autocorrect = true,
-      this.smartDashesType,
-      this.smartQuotesType,
       this.enableSuggestions = true,
       this.maxLines,
       this.minLines,
@@ -476,8 +468,6 @@ class AdaptiveTextField extends StatelessWidget {
             autofocus: autofocus,
             obscureText: obscureText,
             autocorrect: autocorrect,
-            smartDashesType: smartDashesType,
-            smartQuotesType: smartQuotesType,
             enableSuggestions: enableSuggestions,
             maxLines: maxLines,
             minLines: minLines,
@@ -522,8 +512,6 @@ class AdaptiveTextField extends StatelessWidget {
             autofocus: autofocus,
             obscureText: obscureText,
             autocorrect: autocorrect,
-            smartDashesType: smartDashesType,
-            smartQuotesType: smartQuotesType,
             enableSuggestions: enableSuggestions,
             expands: expands,
             readOnly: readOnly,

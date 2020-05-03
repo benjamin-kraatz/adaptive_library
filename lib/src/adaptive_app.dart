@@ -49,9 +49,6 @@ class AdaptiveApp extends StatelessWidget {
   /// {@macro flutter.widgets.widgetsApp.onGenerateRoute}
   final RouteFactory onGenerateRoute;
 
-  /// {@macro flutter.widgets.widgetsApp.onGenerateInitialRoutes}
-  final InitialRouteListFactory onGenerateInitialRoutes;
-
   /// {@macro flutter.widgets.widgetsApp.onUnknownRoute}
   final RouteFactory onUnknownRoute;
 
@@ -73,7 +70,6 @@ class AdaptiveApp extends StatelessWidget {
     this.routes = const <String, WidgetBuilder>{},
     this.initialRoute,
     this.onGenerateRoute,
-    this.onGenerateInitialRoutes,
     this.onUnknownRoute,
     this.navigatorObservers = const <NavigatorObserver>[],
     this.materialDarkTheme,
@@ -95,7 +91,6 @@ class AdaptiveApp extends StatelessWidget {
             darkTheme: materialDarkTheme,
             initialRoute: initialRoute,
             routes: routes,
-            onGenerateInitialRoutes: onGenerateInitialRoutes,
             onGenerateRoute: onGenerateRoute,
             onUnknownRoute: onUnknownRoute,
           )
@@ -109,7 +104,6 @@ class AdaptiveApp extends StatelessWidget {
             routes: routes,
             initialRoute: initialRoute,
             onGenerateRoute: onGenerateRoute,
-            onGenerateInitialRoutes: onGenerateInitialRoutes,
             onUnknownRoute: onUnknownRoute,
           );
   }

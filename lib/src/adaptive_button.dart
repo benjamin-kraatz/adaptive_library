@@ -207,16 +207,6 @@ class AdaptiveButton extends StatelessWidget {
   /// [ButtonThemeData.padding].
   final EdgeInsetsGeometry padding;
 
-  /// Defines how compact the button's layout will be.
-  ///
-  /// {@macro flutter.material.themedata.visualDensity}
-  ///
-  /// See also:
-  ///
-  ///  * [ThemeData.visualDensity], which specifies the [density] for all widgets
-  ///    within a [Theme].
-  final VisualDensity visualDensity;
-
   /// The shape of the button's [Material].
   ///
   /// The button's highlight and splash are clipped to this shape. If the
@@ -275,7 +265,6 @@ class AdaptiveButton extends StatelessWidget {
     this.highlightElevation = 8.0,
     this.disabledElevation = 0.0,
     this.padding = EdgeInsets.zero,
-    this.visualDensity = const VisualDensity(),
     this.shape = const RoundedRectangleBorder(),
     this.animationDuration = kThemeChangeDuration,
     this.clipBehavior = Clip.none,
@@ -312,7 +301,6 @@ class AdaptiveButton extends StatelessWidget {
     this.highlightElevation = 8.0,
     this.disabledElevation = 0.0,
     this.padding = EdgeInsets.zero,
-    this.visualDensity = const VisualDensity(),
     this.shape = const RoundedRectangleBorder(),
     this.animationDuration = kThemeChangeDuration,
     this.clipBehavior = Clip.none,
@@ -350,7 +338,6 @@ class AdaptiveButton extends StatelessWidget {
     this.highlightElevation = 8.0,
     this.disabledElevation = 0.0,
     this.padding = EdgeInsets.zero,
-    this.visualDensity = const VisualDensity(),
     this.shape = const RoundedRectangleBorder(),
     this.animationDuration = kThemeChangeDuration,
     this.clipBehavior = Clip.none,
@@ -376,7 +363,6 @@ class AdaptiveButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
-    final ThemeData theme = Theme.of(context);
     final ButtonThemeData buttonTheme = ButtonTheme.of(context);
 
     return _inheritance.adaptiveState == AdaptiveState.Material
@@ -420,7 +406,6 @@ class AdaptiveButton extends StatelessWidget {
                     highlightElevation: highlightElevation,
                     disabledElevation: disabledElevation,
                     padding: padding ?? buttonTheme.padding,
-                    visualDensity: visualDensity ?? theme.visualDensity,
                     shape: shape ?? buttonTheme.shape,
                     focusNode: focusNode,
                     autofocus: autofocus,
@@ -458,7 +443,6 @@ class AdaptiveButton extends StatelessWidget {
                     highlightColor: highlightColor,
                     splashColor: splashColor,
                     padding: padding ?? buttonTheme.padding,
-                    visualDensity: visualDensity ?? theme.visualDensity,
                     shape: shape ?? buttonTheme.shape,
                     focusNode: focusNode,
                     autofocus: autofocus,
