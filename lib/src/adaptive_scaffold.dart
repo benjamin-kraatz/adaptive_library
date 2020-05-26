@@ -2,6 +2,8 @@ import 'package:adaptive_library/adaptive_library.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+/// Creates either a Scaffold or a CupertinoPageScaffold.
+/// Not all fields are used in both, for example [drawer] and [endDrawer].
 class AdaptiveScaffold extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final Widget title;
