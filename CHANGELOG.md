@@ -1,3 +1,7 @@
+## [0.5.3]
+
+* `AdaptiveScaffold` has now more fields in use for `Scaffold`.
+
 ## [0.5.2]
 
 * Replaced deprecated `inheritFromWidgetOfExactType` with `dependOnInheritedWidgetOfExactType`
