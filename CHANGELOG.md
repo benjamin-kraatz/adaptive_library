@@ -1,6 +1,6 @@
-## [0.5.4]
+## [0.5.4+1]
 
-* Fixed a problem where `adaptiveScaffold` was called on null
+* Fixed a problem where `adaptiveState` was called on null
 
 ## [0.5.3]
 
