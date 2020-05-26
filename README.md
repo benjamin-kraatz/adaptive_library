@@ -78,7 +78,9 @@ AdaptiveScaffold(
 ```
 
 This is a replacement for `Scaffold` and `CupertinoScaffold` and combines them both.
-The title is set in the `AppBar` (`CupertinoNavigationBar`) and also, actions can be provided via actions field.
+The title is set in the `AppBar` (`CupertinoNavigationBar`) and also, actions can be provided via `actions` field.
+
+*Notice that some fields, like `drawer` and `floatingActionButton` have no effect on Cupertino design.*
 
 On Cupertino, the default `CupertinoNavigationBar` is used. To get one with large title, simply
 
@@ -88,7 +90,7 @@ AdaptiveScaffold.large(
     )
 ```
 
-This has no effect on Material style.
+**This has no effect on Material style.**
 
 #### Custom `AppBar` (`CupertinoNavigationBar`)
 
