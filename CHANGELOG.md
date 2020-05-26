@@ -1,3 +1,7 @@
+## [0.5.4]
+
+* Fixed a problem where `adaptiveScaffold` was called on null
+
 ## [0.5.3]
 
 * `AdaptiveScaffold` has now more fields in use for `Scaffold`.
