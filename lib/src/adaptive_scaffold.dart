@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 
 /// Creates either a Scaffold or a CupertinoPageScaffold.
 /// Not all fields are used in both, for example [drawer] and [endDrawer].
+///
+/// Instantiating through [AdaptiveScaffold.large] has also no effect on Material.
+/// It creates a [CupertinoSliverNavigationBar] instead of the "smaller" [CupertinoNavigationBar].
 class AdaptiveScaffold extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final Widget title;
@@ -73,6 +76,11 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
                       actions: widget.actions,
                     ),
             body: widget.body,
+            drawer: widget.drawer,
+            endDrawer: widget.endDrawer,
+            floatingActionButton: widget.floatingActionButton,
+            floatingActionButtonAnimator: widget.floatingActionButtonAnimator,
+            floatingActionButtonLocation: widget.floatingActionButtonLocation,
             bottomNavigationBar: widget.bottomNavigationBar,
           )
         : CupertinoPageScaffold(
