@@ -8,26 +8,26 @@ import 'package:flutter/cupertino.dart';
 /// Instantiating through [AdaptiveScaffold.large] has also no effect on Material.
 /// It creates a [CupertinoSliverNavigationBar] instead of the "smaller" [CupertinoNavigationBar].
 class AdaptiveScaffold extends StatefulWidget {
-  final GlobalKey<ScaffoldState> scaffoldKey;
-  final Widget title;
+  final GlobalKey<ScaffoldState>? scaffoldKey;
+  final Widget? title;
   final Widget body;
-  final List<Widget> actions;
-  final Widget appBar;
-  final Widget drawer;
-  final Widget endDrawer;
-  final Widget floatingActionButton;
-  final FloatingActionButtonLocation floatingActionButtonLocation;
-  final FloatingActionButtonAnimator floatingActionButtonAnimator;
-  final CupertinoNavigationBar cupertinoNavigationBar;
-  final Widget bottomNavigationBar;
-  final Color backgroundColor;
+  final List<Widget>? actions;
+  final Widget? appBar;
+  final Widget? drawer;
+  final Widget? endDrawer;
+  final Widget? floatingActionButton;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
+  final FloatingActionButtonAnimator? floatingActionButtonAnimator;
+  final CupertinoNavigationBar? cupertinoNavigationBar;
+  final Widget? bottomNavigationBar;
+  final Color? backgroundColor;
 
   final bool largeCupertino;
 
   AdaptiveScaffold(
       {this.scaffoldKey,
       this.title,
-      @required this.body,
+      required this.body,
       this.actions,
       this.appBar,
       this.cupertinoNavigationBar,
@@ -43,7 +43,7 @@ class AdaptiveScaffold extends StatefulWidget {
   AdaptiveScaffold.large(
       {this.scaffoldKey,
       this.title,
-      @required this.body,
+      required this.body,
       this.actions,
       this.appBar,
       this.cupertinoNavigationBar,
@@ -63,14 +63,14 @@ class AdaptiveScaffold extends StatefulWidget {
 class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? Scaffold(
             key: widget.scaffoldKey,
             appBar: widget.title == null && widget.appBar == null
                 ? null
-                : widget.appBar ??
+                : widget.appBar as PreferredSizeWidget? ??
                     AppBar(
                       title: widget.title,
                       actions: widget.actions,

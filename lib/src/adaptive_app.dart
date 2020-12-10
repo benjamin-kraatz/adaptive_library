@@ -22,7 +22,7 @@ import 'package:flutter/cupertino.dart';
 /// ```
 class AdaptiveApp extends StatelessWidget {
   /// Your app's title.
-  final String title;
+  final String? title;
 
   /// This little badge in the top right corner. True by default.
   final bool debugShowCheckedModeBanner;
@@ -31,17 +31,17 @@ class AdaptiveApp extends StatelessWidget {
   final Widget home;
 
   /// To specify theme data for a Material app, use this field.
-  final ThemeData materialTheme;
+  final ThemeData? materialTheme;
 
-  final ThemeData materialDarkTheme;
+  final ThemeData? materialDarkTheme;
 
   /// To specify theme data for a Cupertino app, use this field.
-  final CupertinoThemeData cupertinoTheme;
+  final CupertinoThemeData? cupertinoTheme;
 
   /// The delegates for this app's [Localizations] widget.
   ///
   /// The delegates collectively define all of the localized resources for this application's [Localizations] widget.
-  final Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates;
+  final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
 
   /// The list of locales that this app has been localized for.
   ///
@@ -59,24 +59,24 @@ class AdaptiveApp extends StatelessWidget {
   final Map<String, WidgetBuilder> routes;
 
   /// {@macro flutter.widgets.widgetsApp.initialRoute}
-  final String initialRoute;
+  final String? initialRoute;
 
   /// {@macro flutter.widgets.widgetsApp.onGenerateRoute}
-  final RouteFactory onGenerateRoute;
+  final RouteFactory? onGenerateRoute;
 
   /// {@macro flutter.widgets.widgetsApp.onUnknownRoute}
-  final RouteFactory onUnknownRoute;
+  final RouteFactory? onUnknownRoute;
 
   /// {@macro flutter.widgets.widgetsApp.navigatorObservers}
   final List<NavigatorObserver> navigatorObservers;
 
   AdaptiveApp({
-    Key key,
+    Key? key,
     this.materialTheme,
     this.cupertinoTheme,
     this.debugShowCheckedModeBanner = true,
     this.title,
-    @required this.home,
+    required this.home,
     this.localizationsDelegates,
     this.supportedLocales = const <Locale>[
       Locale('de', 'DE'),
@@ -93,7 +93,7 @@ class AdaptiveApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? MaterialApp(

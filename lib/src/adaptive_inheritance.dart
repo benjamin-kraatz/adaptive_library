@@ -12,9 +12,9 @@ class AdaptiveInheritance extends InheritedWidget {
   }
 
   const AdaptiveInheritance({
-    Key key,
-    @required this.adaptiveState,
-    @required Widget child,
+    Key? key,
+    required this.adaptiveState,
+    required Widget child,
   })  : assert(adaptiveState != null,
             'You need to set an adaptive state (Cupertino or Material) in order to use this inherited widget.'),
         assert(child != null, 'Specify a child widget!'),
@@ -22,7 +22,7 @@ class AdaptiveInheritance extends InheritedWidget {
 
   final AdaptiveState adaptiveState;
 
-  static AdaptiveInheritance of(BuildContext context) {
+  static AdaptiveInheritance? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<AdaptiveInheritance>();
   }
 

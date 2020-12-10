@@ -4,14 +4,14 @@ import 'package:flutter/cupertino.dart';
 
 class AdaptiveIconButton extends StatelessWidget {
   final Widget icon;
-  final Widget iconCupertino;
-  final VoidCallback onPressed;
-  final String tooltip;
-  final Color color;
+  final Widget? iconCupertino;
+  final VoidCallback? onPressed;
+  final String? tooltip;
+  final Color? color;
 
   AdaptiveIconButton({
-    Key key,
-    @required this.icon,
+    Key? key,
+    required this.icon,
     this.tooltip,
     this.iconCupertino,
     this.onPressed,
@@ -21,7 +21,7 @@ class AdaptiveIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? IconButton(

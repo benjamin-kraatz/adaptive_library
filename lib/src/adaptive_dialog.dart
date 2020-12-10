@@ -8,7 +8,7 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
   final Widget child;
 
   /// The press callback. Can be null.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   /// Being true by default, it says whether to dismiss the dialog regardless of [onPressed] being set.
   final bool closeOnPress;
@@ -17,7 +17,7 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
   final bool destructive;
 
   AdaptiveAlertDialogButton({
-    @required this.child,
+    required this.child,
     this.onPressed,
     this.closeOnPress = true,
     this.destructive = false,
@@ -26,13 +26,13 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? FlatButton(
             child: child,
             onPressed: () {
-              if (onPressed != null) onPressed();
+              if (onPressed != null) onPressed!();
               if (closeOnPress) {
                 Navigator.pop(context);
               }
@@ -42,7 +42,7 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
             child: child,
             isDestructiveAction: destructive,
             onPressed: () {
-              if (onPressed != null) onPressed();
+              if (onPressed != null) onPressed!();
               if (closeOnPress) {
                 Navigator.pop(context);
               }
@@ -57,11 +57,11 @@ class AdaptiveAlertDialog extends StatefulWidget {
   /// Show the dialog, having [title] and [content] set. Also, you can set actions.
   /// To get a type or data returned, use [T] to set.
   /// A Future<T> is returned.
-  static Future<T> show<T>(BuildContext context,
-      {@required AdaptiveState adaptiveState,
-      Widget title,
-      Widget content,
-      List<AdaptiveAlertDialogButton> actions}) {
+  static Future<T?> show<T>(BuildContext context,
+      {required AdaptiveState adaptiveState,
+      Widget? title,
+      Widget? content,
+      List<AdaptiveAlertDialogButton>? actions}) {
     assert(
         (adaptiveState == AdaptiveState.Cupertino && actions != null) ||
             adaptiveState == AdaptiveState.Material,
@@ -86,13 +86,13 @@ class AdaptiveAlertDialog extends StatefulWidget {
   }
 
   /// Dialog's title
-  final Widget title;
+  final Widget? title;
 
   /// The dialog's content
-  final Widget content;
+  final Widget? content;
 
   /// The dialog's actions. It is recommended (and asserted) to either provide actions or an empty array for Cupertino styled dialogs.
-  final List<AdaptiveAlertDialogButton> actions;
+  final List<AdaptiveAlertDialogButton>? actions;
 
   AdaptiveAlertDialog({this.title, this.content, this.actions});
 
@@ -103,20 +103,20 @@ class AdaptiveAlertDialog extends StatefulWidget {
 class _AdaptiveAlertDialogState extends State<AdaptiveAlertDialog> {
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? AlertDialog(
             title: widget.title,
             content: widget.content,
-            actions: widget.actions.map((ac) {
+            actions: widget.actions!.map((ac) {
               return ac;
             }).toList(),
           )
         : CupertinoAlertDialog(
             title: widget.title,
             content: widget.content,
-            actions: widget.actions.map((ac) {
+            actions: widget.actions!.map((ac) {
               return ac;
             }).toList(),
           );

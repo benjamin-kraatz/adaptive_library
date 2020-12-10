@@ -3,20 +3,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AdaptiveListTile extends StatelessWidget {
-  final Widget leading;
-  final Widget title;
-  final Widget subtitle;
-  final Widget trailing;
+  final Widget? leading;
+  final Widget? title;
+  final Widget? subtitle;
+  final Widget? trailing;
   final bool isThreeLine;
-  final bool dense;
-  final EdgeInsetsGeometry contentPadding;
+  final bool? dense;
+  final EdgeInsetsGeometry? contentPadding;
   final bool enabled;
-  final GestureTapCallback onTap;
-  final GestureLongPressCallback onLongPress;
+  final GestureTapCallback? onTap;
+  final GestureLongPressCallback? onLongPress;
   final bool selected;
 
   AdaptiveListTile({
-    Key key,
+    Key? key,
     this.leading,
     this.title,
     this.subtitle,
@@ -32,7 +32,7 @@ class AdaptiveListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? ListTile(
@@ -61,11 +61,11 @@ class AdaptiveListTile extends StatelessWidget {
 }
 
 class _CupertinoListTile extends StatelessWidget {
-  final Widget title;
-  final Widget content;
-  final String description;
+  final Widget? title;
+  final Widget? content;
+  final String? description;
   final Color backgroundColorDark;
-  final bool selected;
+  final bool? selected;
 
   const _CupertinoListTile(
     this.description,
@@ -104,11 +104,11 @@ class _CupertinoListTile extends StatelessWidget {
             flex: 3,
             child: title ??
                 Text(
-                  description,
+                  description!,
                   style: TextStyle(
                     fontSize: 16.0,
                     height: 1.1,
-                    color: selected != null && selected
+                    color: selected != null && selected!
                         ? CupertinoColors.activeBlue
                         : CupertinoTheme.of(context).textTheme.textStyle.color,
                   ),
@@ -121,7 +121,7 @@ class _CupertinoListTile extends StatelessWidget {
             flex: 2,
             child: Material(
               textStyle: TextStyle(
-                color: selected != null && selected
+                color: selected != null && selected!
                     ? CupertinoColors.activeBlue
                     : Colors.black54,
                 fontSize: 15.1,

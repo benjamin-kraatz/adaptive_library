@@ -6,11 +6,11 @@ class AdaptiveProgressIndicator extends StatelessWidget {
   /// This affects only Material's [CircularProgressIndicator]
   final value;
 
-  AdaptiveProgressIndicator({Key key, this.value}) : super(key: key);
+  AdaptiveProgressIndicator({Key? key, this.value}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? CircularProgressIndicator(
