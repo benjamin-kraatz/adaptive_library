@@ -1,3 +1,11 @@
+## [0.6.0-nullsafety.1]
+
+* Fixed `README.md` to explain what null safety can do (refers to a Medium article).
+
+## [0.6.0-nullsafety.0]
+
+* Migrated package to null safety
+
 ## [0.5.4+1]
 
 * Fixed a problem where `adaptiveState` was called on null
