@@ -261,13 +261,7 @@ class AdaptiveTextField extends StatelessWidget {
   ///    counts characters, and how it may differ from the intuitive meaning.
   final int? maxLength;
 
-  /// If true, prevents the field from allowing more than [maxLength]
-  /// characters.
-  ///
-  /// If [maxLength] is set, [maxLengthEnforced] indicates whether or not to
-  /// enforce the limit, or merely provide a character counter and warning when
-  /// [maxLength] is exceeded.
-  final bool maxLengthEnforced;
+  final MaxLengthEnforcement maxLengthEnforement;
 
   /// {@macro flutter.widgets.editableText.onChanged}
   ///
@@ -307,17 +301,8 @@ class AdaptiveTextField extends StatelessWidget {
   /// {@macro flutter.widgets.editableText.cursorRadius}
   final Radius cursorRadius;
 
-  /// The color to use when painting the cursor.
-  ///
-  /// Defaults to [ThemeData.cursorColor] or [CupertinoTheme.primaryColor]
-  /// depending on [ThemeData.platform].
   final Color? cursorColor;
 
-  /// The appearance of the keyboard.
-  ///
-  /// This setting is only honored on iOS devices.
-  ///
-  /// If unset, defaults to the brightness of [ThemeData.primaryColorBrightness].
   final Brightness? keyboardAppearance;
 
   /// {@macro flutter.widgets.editableText.scrollPadding}
@@ -420,7 +405,7 @@ class AdaptiveTextField extends StatelessWidget {
       this.onEditingComplete,
       this.onSubmitted,
       this.inputFormatters,
-      this.maxLengthEnforced = true,
+      this.maxLengthEnforement = MaxLengthEnforcement.none,
       this.enabled,
       this.cursorWidth = 2.0,
       this.cursorRadius = const Radius.circular(2.0),
@@ -476,7 +461,7 @@ class AdaptiveTextField extends StatelessWidget {
             toolbarOptions: toolbarOptions,
             showCursor: showCursor,
             maxLength: maxLength,
-            maxLengthEnforced: maxLengthEnforced,
+            maxLengthEnforcement: maxLengthEnforement,
             onChanged: onChanged,
             onEditingComplete: onEditingComplete,
             onSubmitted: onSubmitted,
@@ -496,7 +481,7 @@ class AdaptiveTextField extends StatelessWidget {
           )
         : CupertinoTextField(
             decoration: cupertinoDecoration,
-            maxLengthEnforced: maxLengthEnforced,
+            maxLengthEnforcement: maxLengthEnforement,
             maxLength: maxLength,
             maxLines: maxLines,
             minLines: minLines,

@@ -2,9 +2,6 @@ import 'package:adaptive_library/adaptive_library.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-/// A button that displays either a [FlatButton] or a [CupertinoButton]
-/// ([RaisedButton] or [CupertinoButton.filled] respectively) based on which platform the app
-/// is currently running.
 class AdaptiveButton extends StatelessWidget {
   /// The button's content
   final Widget child;
@@ -120,7 +117,6 @@ class AdaptiveButton extends StatelessWidget {
   ///
   /// See also:
   ///
-  ///  * [FlatButton], a button with no elevation or fill color.
   ///  * [focusElevation], the elevation when the button is focused.
   ///  * [hoverElevation], the elevation when a pointer is hovering over the
   ///    button.
@@ -281,8 +277,7 @@ class AdaptiveButton extends StatelessWidget {
     this.colorBrightness,
     this.icon,
     this.label,
-  })  : assert(child != null, 'Give me a child.'),
-        _raised = false,
+  })  : _raised = false,
         _icon = false,
         borderRadius = null;
 
@@ -318,8 +313,7 @@ class AdaptiveButton extends StatelessWidget {
     this.borderRadius,
     this.icon,
     this.label,
-  })  : assert(child != null, 'Give me a child.'),
-        _raised = true,
+  })  : _raised = true,
         _icon = false,
         super(key: key);
 
@@ -355,98 +349,52 @@ class AdaptiveButton extends StatelessWidget {
     this.borderRadius,
     this.icon,
     this.label,
-  })  : assert(child != null, 'Give me a child.'),
-        _raised = true,
+  })  : _raised = true,
         _icon = true,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
-    final ButtonThemeData buttonTheme = ButtonTheme.of(context);
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? _raised
             ? _icon
-                ? RaisedButton.icon(
+                ? ElevatedButton.icon(
                     onPressed: onPressed!,
                     icon: icon!,
                     label: label!,
-                    color: color!,
-                    onHighlightChanged: onHighlightChanged!,
                     clipBehavior: clipBehavior,
-                    focusColor: focusColor!,
-                    hoverColor: hoverColor!,
-                    highlightColor: highlightColor!,
-                    splashColor: splashColor!,
-                    elevation: elevation,
-                    highlightElevation: highlightElevation,
-                    disabledElevation: disabledElevation,
-                    shape: shape ?? buttonTheme.shape,
                     focusNode: focusNode!,
                     autofocus: autofocus,
-                    animationDuration: animationDuration,
-                    materialTapTargetSize: materialTapTargetSize!,
                     key: key!,
                   )
-                : RaisedButton(
+                : ElevatedButton(
                     key: key,
                     child: child,
                     onPressed: onPressed,
                     onLongPress: onLongPress,
-                    onHighlightChanged: onHighlightChanged,
                     clipBehavior: clipBehavior,
-                    focusColor: focusColor,
-                    hoverColor: hoverColor,
-                    highlightColor: highlightColor,
-                    splashColor: splashColor,
-                    elevation: elevation,
-                    focusElevation: focusElevation,
-                    hoverElevation: hoverElevation,
-                    highlightElevation: highlightElevation,
-                    disabledElevation: disabledElevation,
-                    padding: padding ?? buttonTheme.padding,
-                    shape: shape ?? buttonTheme.shape,
                     focusNode: focusNode,
                     autofocus: autofocus,
-                    animationDuration: animationDuration,
-                    materialTapTargetSize: materialTapTargetSize,
                   )
             : _icon
-                ? FlatButton.icon(
+                ? TextButton.icon(
                     onPressed: onPressed!,
                     icon: icon!,
                     label: label!,
-                    color: color!,
                     key: key!,
-                    onHighlightChanged: onHighlightChanged!,
                     clipBehavior: clipBehavior,
-                    focusColor: focusColor!,
-                    hoverColor: hoverColor!,
-                    highlightColor: highlightColor!,
-                    splashColor: splashColor!,
-                    padding: padding ?? buttonTheme.padding,
-                    shape: shape ?? buttonTheme.shape,
                     focusNode: focusNode!,
                     autofocus: autofocus,
-                    materialTapTargetSize: materialTapTargetSize!,
                   )
-                : FlatButton(
+                : TextButton(
                     child: child,
                     onPressed: onPressed,
-                    textTheme: textTheme,
                     key: key,
-                    onHighlightChanged: onHighlightChanged,
                     clipBehavior: clipBehavior,
-                    focusColor: focusColor,
-                    hoverColor: hoverColor,
-                    highlightColor: highlightColor,
-                    splashColor: splashColor,
-                    padding: padding ?? buttonTheme.padding,
-                    shape: shape ?? buttonTheme.shape,
                     focusNode: focusNode,
                     autofocus: autofocus,
-                    materialTapTargetSize: materialTapTargetSize,
                   )
         : _raised
             ? CupertinoButton.filled(
@@ -454,7 +402,7 @@ class AdaptiveButton extends StatelessWidget {
                 onPressed: onPressed,
                 disabledColor:
                     disabledColor ?? CupertinoColors.quaternarySystemFill,
-                padding: padding ?? const EdgeInsets.all(16.0),
+                padding: padding,
                 key: key,
                 borderRadius: borderRadius ??
                     const BorderRadius.all(Radius.circular(8.0)),
@@ -464,7 +412,7 @@ class AdaptiveButton extends StatelessWidget {
                 onPressed: onPressed,
                 disabledColor:
                     disabledColor ?? CupertinoColors.quaternarySystemFill,
-                padding: padding ?? const EdgeInsets.all(16.0),
+                padding: padding,
                 borderRadius: borderRadius ??
                     const BorderRadius.all(Radius.circular(8.0)),
                 key: key,

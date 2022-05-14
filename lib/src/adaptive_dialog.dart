@@ -2,7 +2,6 @@ import 'package:adaptive_library/adaptive_library.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-/// Wraps either a [FlatButton] or a [CupertinoButton] for use in [AdaptiveAlertDialog]
 class AdaptiveAlertDialogButton extends StatelessWidget {
   /// The button's content
   final Widget child;
@@ -21,15 +20,14 @@ class AdaptiveAlertDialogButton extends StatelessWidget {
     this.onPressed,
     this.closeOnPress = true,
     this.destructive = false,
-  }) : assert(child != null,
-            'Without a child, we cannot provide optical feedback :(');
+  });
 
   @override
   Widget build(BuildContext context) {
     AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
-        ? FlatButton(
+        ? TextButton(
             child: child,
             onPressed: () {
               if (onPressed != null) onPressed!();

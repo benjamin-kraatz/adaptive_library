@@ -16,8 +16,7 @@ class AdaptiveIconButton extends StatelessWidget {
     this.iconCupertino,
     this.onPressed,
     this.color,
-  })  : assert(icon != null, 'We need an icon to see what is goung on.'),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

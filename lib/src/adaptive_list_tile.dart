@@ -64,7 +64,7 @@ class _CupertinoListTile extends StatelessWidget {
   final Widget? title;
   final Widget? content;
   final String? description;
-  final Color backgroundColorDark;
+  final Color backgroundColorDark = Colors.black12;
   final bool? selected;
 
   const _CupertinoListTile(
@@ -72,7 +72,6 @@ class _CupertinoListTile extends StatelessWidget {
     this.title, {
     this.content,
     this.selected,
-    this.backgroundColorDark = Colors.black12,
   });
 
   @override

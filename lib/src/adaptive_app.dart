@@ -88,8 +88,7 @@ class AdaptiveApp extends StatelessWidget {
     this.onUnknownRoute,
     this.navigatorObservers = const <NavigatorObserver>[],
     this.materialDarkTheme,
-  })  : assert(home != null, 'AdaptiveApp: A home widget is required.'),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
