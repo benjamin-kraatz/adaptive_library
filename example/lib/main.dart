@@ -22,10 +22,9 @@ class _MyAppState extends State<MyApp> {
           AdaptiveState.Cupertino, // AdaptiveInheritance.getStateByPlatform(),
       child: AdaptiveApp(
         materialTheme: ThemeData(
-            accentColor: Colors.red,
             buttonTheme: ButtonThemeData(
-              buttonColor: Colors.red,
-            )),
+          buttonColor: Colors.red,
+        )),
         home: HomeScreenPage(),
       ),
     );
@@ -38,8 +37,6 @@ class HomeScreenPage extends StatefulWidget {
 }
 
 class _HomeScreenPageState extends State<HomeScreenPage> {
-  final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
-
   @override
   void initState() {
     super.initState();
@@ -48,7 +45,6 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveScaffold(
-      scaffoldKey: _globalKey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +74,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               icon: Icon(Icons.check_circle_outline),
               iconCupertino: Icon(CupertinoIcons.check_mark_circled),
               onPressed: () async {
-                String res = await AdaptiveAlertDialog.show<String>(
+                String? res = await AdaptiveAlertDialog.show<String>(
                   context,
                   adaptiveState: AdaptiveState
                       .Cupertino, //AdaptiveInheritance.getStateByPlatform(),
@@ -110,7 +106,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
 
                 if (res == null) return;
 
-                _globalKey.currentState.showSnackBar(SnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text('You just pressed ok, I think'),
                   action: SnackBarAction(
                     label: 'Yes',

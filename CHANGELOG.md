@@ -1,3 +1,19 @@
+## [0.7.0]
+
+* **Package deprecation**
+
+We no longer plan to maintain this project. Please consider using another package.
+Though, to switch to another package, we upgraded this project to use `Dart 2.17` and `Flutter 3`.
+
+
+## [0.6.0-nullsafety.1]
+
+* Fixed `README.md` to explain what null safety can do (refers to a Medium article).
+
+## [0.6.0-nullsafety.0]
+
+* Migrated package to null safety
+
 ## [0.5.4+1]
 
 * Fixed a problem where `adaptiveState` was called on null

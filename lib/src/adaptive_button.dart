@@ -2,35 +2,32 @@ import 'package:adaptive_library/adaptive_library.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-/// A button that displays either a [FlatButton] or a [CupertinoButton]
-/// ([RaisedButton] or [CupertinoButton.filled] respectively) based on which platform the app
-/// is currently running.
 class AdaptiveButton extends StatelessWidget {
   /// The button's content
   final Widget child;
 
   /// The press callback
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   /// Internally used.
   final bool _raised;
   final bool _icon;
 
   /// The button's color
-  final Color color;
+  final Color? color;
 
   /// This is used on Material only; specifies the appearance of the text in contrast to button's surface color. NOTE: no effect on Cupertino.
-  final ButtonTextTheme textTheme;
+  final ButtonTextTheme? textTheme;
 
   /// The color usually taken for a click/hover. NOTE: no effect on Cupertino.
-  final Color hoverColor;
+  final Color? hoverColor;
 
   /// The color usually taken for a material ripple effect. NOTE: no effect on Cupertino.
-  final Color highlightColor;
+  final Color? highlightColor;
 
   /// Recommended to use [ThemeData] in [AdaptiveApp] to set the button's color.
   @deprecated
-  final Color buttonColor;
+  final Color? buttonColor;
 
   /// The callback that is called when the button is long-pressed.
   ///
@@ -39,7 +36,7 @@ class AdaptiveButton extends StatelessWidget {
   /// See also:
   ///
   ///  * [enabled], which is true if the button is enabled.
-  final VoidCallback onLongPress;
+  final VoidCallback? onLongPress;
 
   /// Called by the underlying [InkWell] widget's [InkWell.onHighlightChanged]
   /// callback.
@@ -47,7 +44,7 @@ class AdaptiveButton extends StatelessWidget {
   /// If [onPressed] changes from null to non-null while a gesture is ongoing,
   /// this can fire during the build phase (in which case calling
   /// [State.setState] is not allowed).
-  final ValueChanged<bool> onHighlightChanged;
+  final ValueChanged<bool>? onHighlightChanged;
 
   /// The color to use for this button's text.
   ///
@@ -64,7 +61,7 @@ class AdaptiveButton extends StatelessWidget {
   ///
   ///  * [disabledTextColor], the text color to use when the button has been
   ///    disabled.
-  final Color textColor;
+  final Color? textColor;
 
   /// The color to use for this button's text when the button is disabled.
   ///
@@ -80,7 +77,7 @@ class AdaptiveButton extends StatelessWidget {
   /// See also:
   ///
   ///  * [textColor] - The color to use for this button's text when the button is [enabled].
-  final Color disabledTextColor;
+  final Color? disabledTextColor;
 
   /// The fill color of the button when the button is disabled.
   ///
@@ -90,7 +87,7 @@ class AdaptiveButton extends StatelessWidget {
   /// See also:
   ///
   ///  * [color] - the fill color of the button when the button is [enabled].
-  final Color disabledColor;
+  final Color? disabledColor;
 
   /// The splash color of the button's [InkWell].
   ///
@@ -103,13 +100,13 @@ class AdaptiveButton extends StatelessWidget {
   ///
   /// The appearance of the splash can be configured with the theme's splash
   /// factory, [ThemeData.splashFactory].
-  final Color splashColor;
+  final Color? splashColor;
 
   /// The fill color of the button's [Material] when it has the input focus.
   ///
   /// The button changed focus color when the button has the input focus. It
   /// appears behind the button's child.
-  final Color focusColor;
+  final Color? focusColor;
 
   /// The z-coordinate at which to place this button relative to its parent.
   ///
@@ -120,7 +117,6 @@ class AdaptiveButton extends StatelessWidget {
   ///
   /// See also:
   ///
-  ///  * [FlatButton], a button with no elevation or fill color.
   ///  * [focusElevation], the elevation when the button is focused.
   ///  * [hoverElevation], the elevation when a pointer is hovering over the
   ///    button.
@@ -193,7 +189,7 @@ class AdaptiveButton extends StatelessWidget {
   /// See also:
   ///
   ///  * [ButtonTextTheme], uses [Brightness] to determine text color.
-  final Brightness colorBrightness;
+  final Brightness? colorBrightness;
 
   /// Whether the button is enabled or disabled.
   ///
@@ -223,7 +219,7 @@ class AdaptiveButton extends StatelessWidget {
   final Clip clipBehavior;
 
   /// {@macro flutter.widgets.Focus.focusNode}
-  final FocusNode focusNode;
+  final FocusNode? focusNode;
 
   /// {@macro flutter.widgets.Focus.autofocus}
   final bool autofocus;
@@ -240,19 +236,19 @@ class AdaptiveButton extends StatelessWidget {
   /// See also:
   ///
   ///  * [MaterialTapTargetSize], for a description of how this affects tap targets.
-  final MaterialTapTargetSize materialTapTargetSize;
+  final MaterialTapTargetSize? materialTapTargetSize;
 
   /// ONLY USED ON CUPERTINO
-  final BorderRadius borderRadius;
+  final BorderRadius? borderRadius;
 
   /// Used when having an icon button, currently not implemented for Cupertino.
-  final Widget icon;
+  final Widget? icon;
 
   /// Used when having an icon button, currently not implemented for Cupertino.
-  final Widget label;
+  final Widget? label;
 
   AdaptiveButton({
-    @required this.child,
+    required this.child,
     this.onLongPress,
     this.onHighlightChanged,
     this.focusColor,
@@ -281,14 +277,13 @@ class AdaptiveButton extends StatelessWidget {
     this.colorBrightness,
     this.icon,
     this.label,
-  })  : assert(child != null, 'Give me a child.'),
-        _raised = false,
+  })  : _raised = false,
         _icon = false,
         borderRadius = null;
 
   AdaptiveButton.raised({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.onLongPress,
     this.onHighlightChanged,
     this.focusColor,
@@ -318,14 +313,13 @@ class AdaptiveButton extends StatelessWidget {
     this.borderRadius,
     this.icon,
     this.label,
-  })  : assert(child != null, 'Give me a child.'),
-        _raised = true,
+  })  : _raised = true,
         _icon = false,
         super(key: key);
 
   AdaptiveButton.icon({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.onLongPress,
     this.onHighlightChanged,
     this.focusColor,
@@ -355,98 +349,52 @@ class AdaptiveButton extends StatelessWidget {
     this.borderRadius,
     this.icon,
     this.label,
-  })  : assert(child != null, 'Give me a child.'),
-        _raised = true,
+  })  : _raised = true,
         _icon = true,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
-    final ButtonThemeData buttonTheme = ButtonTheme.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? _raised
             ? _icon
-                ? RaisedButton.icon(
-                    onPressed: onPressed,
-                    icon: icon,
-                    label: label,
-                    color: color,
-                    onHighlightChanged: onHighlightChanged,
+                ? ElevatedButton.icon(
+                    onPressed: onPressed!,
+                    icon: icon!,
+                    label: label!,
                     clipBehavior: clipBehavior,
-                    focusColor: focusColor,
-                    hoverColor: hoverColor,
-                    highlightColor: highlightColor,
-                    splashColor: splashColor,
-                    elevation: elevation,
-                    highlightElevation: highlightElevation,
-                    disabledElevation: disabledElevation,
-                    shape: shape ?? buttonTheme.shape,
-                    focusNode: focusNode,
+                    focusNode: focusNode!,
                     autofocus: autofocus,
-                    animationDuration: animationDuration,
-                    materialTapTargetSize: materialTapTargetSize,
-                    key: key,
+                    key: key!,
                   )
-                : RaisedButton(
+                : ElevatedButton(
                     key: key,
                     child: child,
                     onPressed: onPressed,
                     onLongPress: onLongPress,
-                    onHighlightChanged: onHighlightChanged,
                     clipBehavior: clipBehavior,
-                    focusColor: focusColor,
-                    hoverColor: hoverColor,
-                    highlightColor: highlightColor,
-                    splashColor: splashColor,
-                    elevation: elevation,
-                    focusElevation: focusElevation,
-                    hoverElevation: hoverElevation,
-                    highlightElevation: highlightElevation,
-                    disabledElevation: disabledElevation,
-                    padding: padding ?? buttonTheme.padding,
-                    shape: shape ?? buttonTheme.shape,
                     focusNode: focusNode,
                     autofocus: autofocus,
-                    animationDuration: animationDuration,
-                    materialTapTargetSize: materialTapTargetSize,
                   )
             : _icon
-                ? FlatButton.icon(
-                    onPressed: onPressed,
-                    icon: icon,
-                    label: label,
-                    color: color,
-                    key: key,
-                    onHighlightChanged: onHighlightChanged,
+                ? TextButton.icon(
+                    onPressed: onPressed!,
+                    icon: icon!,
+                    label: label!,
+                    key: key!,
                     clipBehavior: clipBehavior,
-                    focusColor: focusColor,
-                    hoverColor: hoverColor,
-                    highlightColor: highlightColor,
-                    splashColor: splashColor,
-                    padding: padding ?? buttonTheme.padding,
-                    shape: shape ?? buttonTheme.shape,
-                    focusNode: focusNode,
+                    focusNode: focusNode!,
                     autofocus: autofocus,
-                    materialTapTargetSize: materialTapTargetSize,
                   )
-                : FlatButton(
+                : TextButton(
                     child: child,
                     onPressed: onPressed,
-                    textTheme: textTheme,
                     key: key,
-                    onHighlightChanged: onHighlightChanged,
                     clipBehavior: clipBehavior,
-                    focusColor: focusColor,
-                    hoverColor: hoverColor,
-                    highlightColor: highlightColor,
-                    splashColor: splashColor,
-                    padding: padding ?? buttonTheme.padding,
-                    shape: shape ?? buttonTheme.shape,
                     focusNode: focusNode,
                     autofocus: autofocus,
-                    materialTapTargetSize: materialTapTargetSize,
                   )
         : _raised
             ? CupertinoButton.filled(
@@ -454,7 +402,7 @@ class AdaptiveButton extends StatelessWidget {
                 onPressed: onPressed,
                 disabledColor:
                     disabledColor ?? CupertinoColors.quaternarySystemFill,
-                padding: padding ?? const EdgeInsets.all(16.0),
+                padding: padding,
                 key: key,
                 borderRadius: borderRadius ??
                     const BorderRadius.all(Radius.circular(8.0)),
@@ -464,7 +412,7 @@ class AdaptiveButton extends StatelessWidget {
                 onPressed: onPressed,
                 disabledColor:
                     disabledColor ?? CupertinoColors.quaternarySystemFill,
-                padding: padding ?? const EdgeInsets.all(16.0),
+                padding: padding,
                 borderRadius: borderRadius ??
                     const BorderRadius.all(Radius.circular(8.0)),
                 key: key,

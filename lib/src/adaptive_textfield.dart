@@ -32,7 +32,7 @@ class AdaptiveTextField extends StatelessWidget {
   /// Controls the text being edited.
   ///
   /// If null, this widget will create its own [TextEditingController].
-  final TextEditingController controller;
+  final TextEditingController? controller;
 
   final EdgeInsetsGeometry padding;
 
@@ -43,7 +43,7 @@ class AdaptiveTextField extends StatelessWidget {
   ///
   /// The text style of the placeholder text matches that of the text field's
   /// main text entry except a lighter font weight and a grey font color.
-  final String placeholder;
+  final String? placeholder;
 
   /// The style to use for the placeholder text.
   ///
@@ -57,7 +57,7 @@ class AdaptiveTextField extends StatelessWidget {
   final TextStyle placeholderStyle;
 
   /// An optional [Widget] to display before the text.
-  final Widget prefix;
+  final Widget? prefix;
 
   /// Controls the visibility of the [prefix] widget based on the state of
   /// text entry when the [prefix] argument is not null.
@@ -68,7 +68,7 @@ class AdaptiveTextField extends StatelessWidget {
   final OverlayVisibilityMode prefixMode;
 
   /// An optional [Widget] to display after the text.
-  final Widget suffix;
+  final Widget? suffix;
 
   /// Controls the visibility of the [suffix] widget based on the state of
   /// text entry when the [suffix] argument is not null.
@@ -126,7 +126,7 @@ class AdaptiveTextField extends StatelessWidget {
   ///
   /// This widget builds an [EditableText] and will ensure that the keyboard is
   /// showing when it is tapped by calling [EditableTextState.requestKeyboard()].
-  final FocusNode focusNode;
+  final FocusNode? focusNode;
 
   /// The decoration to show around the text field.
   ///
@@ -140,13 +140,13 @@ class AdaptiveTextField extends StatelessWidget {
   final BoxDecoration cupertinoDecoration;
 
   /// {@macro flutter.widgets.editableText.keyboardType}
-  final TextInputType keyboardType;
+  final TextInputType? keyboardType;
 
   /// The type of action button to use for the keyboard.
   ///
   /// Defaults to [TextInputAction.newline] if [keyboardType] is
   /// [TextInputType.multiline] and [TextInputAction.done] otherwise.
-  final TextInputAction textInputAction;
+  final TextInputAction? textInputAction;
 
   /// {@macro flutter.widgets.editableText.textCapitalization}
   final TextCapitalization textCapitalization;
@@ -156,19 +156,19 @@ class AdaptiveTextField extends StatelessWidget {
   /// This text style is also used as the base style for the [decoration].
   ///
   /// If null, defaults to the `subtitle1` text style from the current [Theme].
-  final TextStyle style;
+  final TextStyle? style;
 
   /// {@macro flutter.widgets.editableText.strutStyle}
-  final StrutStyle strutStyle;
+  final StrutStyle? strutStyle;
 
   /// {@macro flutter.widgets.editableText.textAlign}
   final TextAlign textAlign;
 
   /// {@macro flutter.widgets.inputDecorator.textAlignVertical}
-  final TextAlignVertical textAlignVertical;
+  final TextAlignVertical? textAlignVertical;
 
   /// {@macro flutter.widgets.editableText.textDirection}
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
 
   /// {@macro flutter.widgets.editableText.autofocus}
   final bool autofocus;
@@ -183,10 +183,10 @@ class AdaptiveTextField extends StatelessWidget {
   final bool enableSuggestions;
 
   /// {@macro flutter.widgets.editableText.maxLines}
-  final int maxLines;
+  final int? maxLines;
 
   /// {@macro flutter.widgets.editableText.minLines}
-  final int minLines;
+  final int? minLines;
 
   /// {@macro flutter.widgets.editableText.expands}
   final bool expands;
@@ -199,10 +199,10 @@ class AdaptiveTextField extends StatelessWidget {
   /// If not set, select all and paste will default to be enabled. Copy and cut
   /// will be disabled if [obscureText] is true. If [readOnly] is true,
   /// paste and cut will be disabled regardless.
-  final ToolbarOptions toolbarOptions;
+  final ToolbarOptions? toolbarOptions;
 
   /// {@macro flutter.widgets.editableText.showCursor}
-  final bool showCursor;
+  final bool? showCursor;
 
   /// If [maxLength] is set to this value, only the "current input length"
   /// part of the character counter is shown.
@@ -259,15 +259,9 @@ class AdaptiveTextField extends StatelessWidget {
   ///
   ///  * [LengthLimitingTextInputFormatter] for more information on how it
   ///    counts characters, and how it may differ from the intuitive meaning.
-  final int maxLength;
+  final int? maxLength;
 
-  /// If true, prevents the field from allowing more than [maxLength]
-  /// characters.
-  ///
-  /// If [maxLength] is set, [maxLengthEnforced] indicates whether or not to
-  /// enforce the limit, or merely provide a character counter and warning when
-  /// [maxLength] is exceeded.
-  final bool maxLengthEnforced;
+  final MaxLengthEnforcement maxLengthEnforement;
 
   /// {@macro flutter.widgets.editableText.onChanged}
   ///
@@ -277,10 +271,10 @@ class AdaptiveTextField extends StatelessWidget {
   ///    runs and can validate and change ("format") the input value.
   ///  * [onEditingComplete], [onSubmitted], [onSelectionChanged]:
   ///    which are more specialized input change notifications.
-  final ValueChanged<String> onChanged;
+  final ValueChanged<String>? onChanged;
 
   /// {@macro flutter.widgets.editableText.onEditingComplete}
-  final VoidCallback onEditingComplete;
+  final VoidCallback? onEditingComplete;
 
   /// {@macro flutter.widgets.editableText.onSubmitted}
   ///
@@ -289,17 +283,17 @@ class AdaptiveTextField extends StatelessWidget {
   ///  * [EditableText.onSubmitted] for an example of how to handle moving to
   ///    the next/previous field when using [TextInputAction.next] and
   ///    [TextInputAction.previous] for [textInputAction].
-  final ValueChanged<String> onSubmitted;
+  final ValueChanged<String>? onSubmitted;
 
   /// {@macro flutter.widgets.editableText.inputFormatters}
-  final List<TextInputFormatter> inputFormatters;
+  final List<TextInputFormatter>? inputFormatters;
 
   /// If false the text field is "disabled": it ignores taps and its
   /// [decoration] is rendered in grey.
   ///
   /// If non-null this property overrides the [decoration]'s
   /// [Decoration.enabled] property.
-  final bool enabled;
+  final bool? enabled;
 
   /// {@macro flutter.widgets.editableText.cursorWidth}
   final double cursorWidth;
@@ -307,18 +301,9 @@ class AdaptiveTextField extends StatelessWidget {
   /// {@macro flutter.widgets.editableText.cursorRadius}
   final Radius cursorRadius;
 
-  /// The color to use when painting the cursor.
-  ///
-  /// Defaults to [ThemeData.cursorColor] or [CupertinoTheme.primaryColor]
-  /// depending on [ThemeData.platform].
-  final Color cursorColor;
+  final Color? cursorColor;
 
-  /// The appearance of the keyboard.
-  ///
-  /// This setting is only honored on iOS devices.
-  ///
-  /// If unset, defaults to the brightness of [ThemeData.primaryColorBrightness].
-  final Brightness keyboardAppearance;
+  final Brightness? keyboardAppearance;
 
   /// {@macro flutter.widgets.editableText.scrollPadding}
   final EdgeInsets scrollPadding;
@@ -352,7 +337,7 @@ class AdaptiveTextField extends StatelessWidget {
   /// To listen to arbitrary pointer events without competing with the
   /// text field's internal gesture detector, use a [Listener].
   /// {@endtemplate}
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   /// Callback that generates a custom [InputDecorator.counter] widget.
   ///
@@ -384,16 +369,16 @@ class AdaptiveTextField extends StatelessWidget {
   ///
   /// If buildCounter returns null, then no counter and no Semantics widget will
   /// be created at all.
-  final InputCounterWidgetBuilder buildCounter;
+  final InputCounterWidgetBuilder? buildCounter;
 
   /// {@macro flutter.widgets.editableText.scrollPhysics}
-  final ScrollPhysics scrollPhysics;
+  final ScrollPhysics? scrollPhysics;
 
   /// {@macro flutter.widgets.editableText.scrollController}
-  final ScrollController scrollController;
+  final ScrollController? scrollController;
 
   AdaptiveTextField(
-      {Key key,
+      {Key? key,
       this.controller,
       this.focusNode,
       this.decoration = const InputDecoration(),
@@ -420,7 +405,7 @@ class AdaptiveTextField extends StatelessWidget {
       this.onEditingComplete,
       this.onSubmitted,
       this.inputFormatters,
-      this.maxLengthEnforced = true,
+      this.maxLengthEnforement = MaxLengthEnforcement.none,
       this.enabled,
       this.cursorWidth = 2.0,
       this.cursorRadius = const Radius.circular(2.0),
@@ -449,7 +434,7 @@ class AdaptiveTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context);
+    AdaptiveInheritance _inheritance = AdaptiveInheritance.of(context)!;
 
     return _inheritance.adaptiveState == AdaptiveState.Material
         ? TextField(
@@ -476,7 +461,7 @@ class AdaptiveTextField extends StatelessWidget {
             toolbarOptions: toolbarOptions,
             showCursor: showCursor,
             maxLength: maxLength,
-            maxLengthEnforced: maxLengthEnforced,
+            maxLengthEnforcement: maxLengthEnforement,
             onChanged: onChanged,
             onEditingComplete: onEditingComplete,
             onSubmitted: onSubmitted,
@@ -496,7 +481,7 @@ class AdaptiveTextField extends StatelessWidget {
           )
         : CupertinoTextField(
             decoration: cupertinoDecoration,
-            maxLengthEnforced: maxLengthEnforced,
+            maxLengthEnforcement: maxLengthEnforement,
             maxLength: maxLength,
             maxLines: maxLines,
             minLines: minLines,

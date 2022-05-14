@@ -1,11 +1,20 @@
-# adaptive_library
+# Adaptive Library
 
-A set of Widgets that create a native look and feel on iOS and Android.
+## Important note
+
+**This project is no longer maintained. Recently it was updated to support the latest Dart 2.17 and Flutter 3, but from now on, there is no longer any maintenance.
+You should definitely check out any other package that support platform-agnostic widgets!**
+
+## The package
+
+A set of widgets that create a native look and feel on iOS and Android.
 
 Flutter already gives us a great library for Material and Cupertino widgets.
 But as a cross platform tool, Flutter does *not* provide a good way of displaying the right widget design types on each platform dynamically.
 
 *adaptive_library* crashes in and... *here it is!* 
+
+**Note: this version supports null safety. You need to be on the `flutter beta channel`. Go to [this article](https://medium.com/flutter/announcing-dart-null-safety-beta-4491da22077a) to learn more about it.**
 
 ## Getting Started
 
