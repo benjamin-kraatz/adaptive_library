@@ -3,7 +3,7 @@
 * **Package deprecation**
 
 We no longer plan to maintain this project. Please consider using another package.
-Though for reasons to switch, we upgraded this project to use `Dart 2.17` and `Flutter 3`.
+Though, to switch to another package, we upgraded this project to use `Dart 2.17` and `Flutter 3`.
 
 
 ## [0.6.0-nullsafety.1]
